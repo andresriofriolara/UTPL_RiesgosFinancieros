@@ -1,0 +1,151 @@
+/* UTPL Minimal Theme + Top-Right Logo + Top-Left Clock */
+/* File: UTPL_Markets/shared/css/utpl-theme.css */
+
+/* ===== Brand tokens ===== */
+:root{
+  --utpl-blue:   #004f86;   /* headings & links */
+  --utpl-yellow: #F2A900;   /* bullet markers */
+
+  --bg:#ffffff;            /* background */
+  --fg:#000000;            /* main text (black) */
+  --muted:#60646c;         /* secondary text */
+  --code-bg:#f6f8fa;       /* code surface */
+
+  /* Logo (top-right) */
+  --logo-top: 12px;
+  --logo-right: 18px;
+  --logo-width: 120px;
+  --logo-height: 32px;
+
+  /* Clock (top-left) */
+  --clock-top: 12px;
+  --clock-left: 22px;
+  --clock-bg: rgba(255,255,255,.85);
+  --clock-fg: #111315;
+  --clock-radius: 10px;
+  --clock-padding: 6px 10px;
+  --clock-shadow: 0 2px 10px rgba(0,0,0,.05);
+  --clock-font: 14px/1 Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+/* ===== Typography ===== */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Source+Code+Pro:wght@400;600&display=swap");
+.reveal, .reveal p, .reveal li { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; color:var(--fg); }
+.reveal code, .reveal pre { font-family:"Source Code Pro", ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+/* ===== Base ===== */
+.reveal .slides{ background:var(--bg); }
+.reveal h1{ font-weight:800; letter-spacing:.01em; }
+.reveal h2{ font-weight:700; }
+.reveal h3{ font-weight:600; }
+/* Headings in UTPL blue */
+.reveal h1, .reveal h2, .reveal h3 { color: var(--utpl-blue); }
+
+/* Links use UTPL blue */
+.reveal a{
+  color: var(--utpl-blue);
+  text-decoration:none;
+  border-bottom:2px solid color-mix(in srgb, var(--utpl-blue) 45%, transparent);
+}
+.reveal a:hover{ border-bottom-color: var(--utpl-blue); }
+
+/* Lists & spacing */
+.reveal ul, .reveal ol{ margin-block:.6em .2em; }
+.reveal li{ margin:.18em 0; }
+/* Bullet/number markers in UTPL yellow; text remains black */
+.reveal ul li::marker,
+.reveal ol li::marker { color: var(--utpl-yellow); }
+
+/* Code blocks */
+.reveal pre code{
+  background:var(--code-bg);
+  display:block;
+  padding:.8em 1em;
+  border-radius:8px;
+  line-height:1.35;
+  color: var(--fg);
+}
+
+/* ===== Helpers ===== */
+
+/* Title slide */
+.reveal .title-slide{ text-align:center; }
+.reveal .title-slide h1{ font-size:2.6em; margin:.1em 0 .2em; }
+.reveal .title-slide .subtitle{ font-size:1.1em; color:var(--muted); }
+
+/* Two-column layout */
+.reveal .cols{ display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:start; }
+@media (max-width:1080px){ .reveal .cols{ grid-template-columns:1fr; } }
+
+/* Footer text (bottom-left) */
+.reveal .slides::after{
+  content:"UTPL • Ingeniería Financiera y Administración de Riesgos Financieros • A. Riofrío-Lara";
+  position:fixed; left:24px; bottom:14px; font-size:14px; color:var(--muted);
+  z-index: 9997;
+}
+
+/* ===== Logo (top-right on every slide) ===== */
+/* Place your file at: UTPL_Markets/shared/images/logo.png
+   Path below is relative to THIS CSS file */
+.reveal .slides::before{
+  content:"";
+  position: fixed;
+  top: var(--logo-top);
+  right: var(--logo-right);
+  width: var(--logo-width);
+  height: var(--logo-height);
+  background: url("../images/logo.png") right/contain no-repeat;
+  opacity: .95;
+  z-index: 9998;
+  pointer-events: none;
+}
+
+/* ===== On-slide Clock (requires shared/js/clock.js) ===== */
+.utpl-clock{
+  position: fixed;
+  top: var(--clock-top);
+  left: var(--clock-left);
+  right: auto; /* ensure right is not set */
+  z-index: 9999;
+  background: var(--clock-bg);
+  color: var(--clock-fg);
+  border-radius: var(--clock-radius);
+  padding: var(--clock-padding);
+  box-shadow: var(--clock-shadow);
+  font: var(--clock-font);
+  letter-spacing: .02em;
+  user-select: none;
+}
+.utpl-clock.hidden{ display:none; }
+
+@media print{
+  .reveal .slides::after{ opacity:.6; }
+  .utpl-clock{ display:none !important; }
+}
+
+/* Make sure navigation arrows are visible above logo/footer */
+.reveal .controls {
+  z-index: 10000;    /* higher than our logo/footer (9998/9997) */
+  opacity: 1;
+  visibility: visible;
+}
+
+
+/* Center block title slides vertically to avoid the logo */
+.reveal .title-slide {
+  display: grid;
+  place-content: center;
+  min-height: 100%;
+  text-align: center;
+}
+.reveal .title-slide .midtitle {
+  font-size: 2.4em;
+  font-weight: 800;
+  letter-spacing: .01em;
+  margin: 0 0 .25em 0;
+  color: var(--utpl-blue);
+}
+.reveal .title-slide .subtitle {
+  font-size: 1.1em;
+  color: var(--muted);
+}
