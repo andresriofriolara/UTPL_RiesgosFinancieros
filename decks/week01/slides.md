@@ -1,6 +1,6 @@
 <section class="title-slide">
 Semana 1 | Introducción
-<div class="subtitle">Ingeniería Financiera y Administración de Riesgos Financieros • <em>Octubre 6, 2025</em></div>
+<div class="subtitle">Ingeniería Financiera y Administración de Riesgos Financieros • <em>Octubre 7, 2025</em></div>
 </section>
 
 ---

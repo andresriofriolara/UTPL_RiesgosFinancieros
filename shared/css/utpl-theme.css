@@ -79,7 +79,7 @@
 
 /* Footer text (bottom-left) */
 .reveal .slides::after{
-  content:"UTPL • Ingeniería Financiera y Administración de Riesgos Financieros • A. Riofrío-Lara";
+  content:"UTPL • Ingeniería Financiera y Administración de Riesgos Financieros • A. Riofrío-Lara, Ph.D.(c)";
   position:fixed; left:24px; bottom:14px; font-size:14px; color:var(--muted);
   z-index: 9997;
 }
