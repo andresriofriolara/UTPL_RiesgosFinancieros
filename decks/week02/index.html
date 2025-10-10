@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>UTPL • Ingeniería Financiera y Administración de Riesgos Financieros — Semana 02</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Reveal core + stock theme from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/white.css" id="theme">
+
+  <!-- Code highlight theme -->
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css">
+
+  <!-- Your shared theme (local, relative to week01/) -->
+  <link rel="stylesheet" href="../../shared/css/utpl-theme.css">
+
+  <style>
+    section img { max-width: 100%; height: auto; }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <!-- Markdown-powered deck -->
+      <section
+        data-markdown="slides.md"
+        data-separator="^---$"
+        data-separator-vertical="^--$"
+        data-separator-notes="^Note:"
+        data-charset="utf-8">
+      </section>
+    </div>
+  </div>
+
+  <!-- Reveal core + plugins from CDN -->
+  <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+  <script src="https://unpkg.com/reveal.js/plugin/markdown/markdown.js"></script>
+  <script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
+  <script src="https://unpkg.com/reveal.js/plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js/plugin/math/math.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/white.css" id="theme">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css">
+  <link rel="stylesheet" href="../../shared/css/utpl-theme.css">
+
+
+  <script>
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      controlsTutorial: true,
+      controlsLayout: 'edges',
+      progress: true,
+      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.MathJax3 ],
+      math: {
+        mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$','$$'], ['\\[','\\]']]
+        }
+      }
+    });
+  </script>
+
+  <!-- Clock (top-left; toggle with "C") -->
+  <script src="../../shared/js/clock.js"></script>
+</body>
+</html>
+
