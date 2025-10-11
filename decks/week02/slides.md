@@ -171,9 +171,11 @@ $$
 - Contratos **estandarizados**, negociación en bolsa (CME/ICE), **cámara de compensación**.
 - **Margen inicial** y **de mantenimiento**; **mark-to-market diario**.
 - **Ganancia/pérdida diaria** (1 contrato):
+
 $$
-\operatorname{PnL}_t \approx (F_t - F_{t-1})\, Multiplicador
+PNL_t = (F_t - F_{t-1})\, Multiplicador
 $$
+
 
 
 *(signo según largo/corto).*
