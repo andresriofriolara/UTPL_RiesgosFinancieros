@@ -23,11 +23,14 @@ Semana 2 | Instrumentos de cobertura de riesgos mediante derivados financieros
 ---
 
 ## Semana 2
+
 Instrumentos de Cobertura de Riesgos Mediante Derivados Financieros 
 
 ---
 
-# Semana 2: Instrumentos de cobertura de riesgos mediante derivados financieros  
+# Semana 2: 
+Instrumentos de cobertura de riesgos mediante derivados financieros
+
 - **2.1 Definición de instrumento derivado**
 - **2.2 Mercado de opciones**
     - 2.2.1 Características y participantes en el mercado de opciones
@@ -39,18 +42,29 @@ Instrumentos de Cobertura de Riesgos Mediante Derivados Financieros
 
 ---
 
-## 2.1 Definición de instrumento derivado — Conceptos base (1/2)
+## 2.1 Definición de instrumento derivado — Conceptos base (1/4)
 - Derivado: contrato cuyo **valor depende** de un **subyacente** $S$ (acción, índice, tasa, FX, commodity).
+- Elementos: **$S_0$**, **strike $K$**, **vencimiento $T$**, **nocional $N$**, **liquidación** (física/cash).
+- Funciones económicas: **cobertura**, **especulación**, **arbitraje**.
+
+--
+
+## 2.1 Definición de instrumento derivado — Conceptos base (2/4)
 - Elementos: **$S_0$**, **strike $K$**, **vencimiento $T$**, **nocional $N$**, **liquidación** (física/cash).
 - Funciones económicas: **cobertura**, **especulación**, **arbitraje**.
 - Valoración: principio de **no arbitraje** + réplicas (carteras sintéticas).
 
 --
 
-## 2.1 Definición de instrumento derivado — Conceptos base (2/2)
+## 2.1 Definición de instrumento derivado — Conceptos base (3/4)
+
 - **Mercados:**
   - **OTC** (forwards, swaps, opciones exóticas): flexibles, mayor riesgo de contraparte (mitigable con colateral/CSA).
   - **Bolsa** (futuros, muchas opciones): estandarizados, **clearing** y márgenes.
+
+--
+
+## 2.1 Definición de instrumento derivado — Conceptos base (4/4)
 - **Riesgos:** mercado, base, liquidez, contraparte, operacional.
 - **Mapa temático semana:** opciones → futuros → swaps → forwards.
 
@@ -59,6 +73,11 @@ Instrumentos de Cobertura de Riesgos Mediante Derivados Financieros
 ## 2.2 Mercado de opciones — Introducción
 - **Call**: derecho a **comprar** $S$ a $K$. **Put**: derecho a **vender** $S$ a $K$.
 - **Estilo**: europea (solo en $T$) vs. americana (en/antes de $T$).
+
+---
+
+## 2.2 Mercado de opciones — Introducción (Cont.)
+
 - **Prima**: precio de la opción (valor **intrínseco** + **tiempo**).
 - **Moneyness**: ITM / ATM / OTM.
 - Drivers del precio: $S_0$, $K$, $T$, $r$, **volatilidad** $\sigma$, dividendos.
@@ -69,6 +88,10 @@ Instrumentos de Cobertura de Riesgos Mediante Derivados Financieros
 - **Participantes:**
   - **Hedgers** (reducen exposición), **especuladores** (direccional/volatilidad), **arbitrajistas** (paridades).
   - **Comprador** (largo): paga prima, riesgo acotado; **vendedor** (corto): cobra prima, riesgo potencialmente alto.
+
+--
+
+### 2.2.1 Características y participantes
 - **Microestructura:** mercados listados con **market makers**, libros de órdenes, horquillas.
 
 --
@@ -81,33 +104,33 @@ Instrumentos de Cobertura de Riesgos Mediante Derivados Financieros
 
 --
 
-### 2.2.3 Representación gráfica y numérica — Payoffs (1/3)
+### 2.2.3 Representación gráfica y numérica — Payoffs (1/4)
 - **Call larga (europea)** a vencimiento $T$:
 $$
-\Pi_T^{\text{call long}} = \max(S_T - K, 0) - \text{prima}
+\Pi_T^{\text{call long}} = \max(S_T - K_0) - \text{prima}
 $$
 - **Break-even:** $S_T^{*} = K + \text{prima}$.
 - **Call corta:**
 $$
-\Pi_T^{\text{call short}} = -\max(S_T - K,0) + \text{prima}
+\Pi_T^{\text{call short}} = -\max(S_T - K_0) + \text{prima}
 $$
 
 --
 
-### 2.2.3 Representación gráfica y numérica — Payoffs (2/3)
+### 2.2.3 Representación gráfica y numérica — Payoffs (2/4)
 - **Put larga (europea)** a vencimiento $T$:
 $$
-\Pi_T^{\text{put long}} = \max(K - S_T, 0) - \text{prima}
+\Pi_T^{\text{put long}} = \max(K - S_T) - \text{prima}
 $$
 - **Break-even:** $S_T^{*} = K - \text{prima}$.
 - **Put corta:**
 $$
-\Pi_T^{\text{put short}} = -\max(K - S_T,0) + \text{prima}
+\Pi_T^{\text{put short}} = -\max(K - S_T) + \text{prima}
 $$
 
 --
 
-### 2.2.3 Representación gráfica y numérica — Paridades & ideas (3/3)
+### 2.2.3 Representación gráfica y numérica — Paridades & ideas (3/4)
 - **Paridad put–call (europeas, sin dividendos):**
 $$
 C - P = S_0 - K e^{-rT}
@@ -116,6 +139,11 @@ $$
 $$
 C - P = S_0 - D - K e^{-rT}
 $$
+
+--
+
+### 2.2.3 Representación gráfica y numérica — Paridades & ideas (4/4)
+
 - **Intuición de “griegas” (narrativa):**  
   - **Delta** $\approx \partial \text{Precio}/\partial S$.  
   - **Vega** $\uparrow$ con $\sigma$.  
@@ -141,8 +169,9 @@ $$
 - **Margen inicial** y **de mantenimiento**; **mark-to-market diario**.
 - **Ganancia/pérdida diaria** (1 contrato):
 $$
-\text{P\&L}_t \approx (F_t - F_{t-1}) \times \text{multiplicador}
+\text{P\!\&\!L}_t \approx (F_t - F_{t-1}) \cdot \text{multiplicador}
 $$
+
 *(signo según largo/corto).*
 
 --
@@ -152,6 +181,11 @@ $$
 - Con carry/dividendos/costos: $F_0 = S_0 e^{(r + c - y)T}$.
 - **Base:** $\text{Base}_t = S_t - F_t$ (converge a $0$ en $T$).
 - **Riesgo de base** en coberturas reales.
+
+--
+
+## 2.3 Mercado de futuros — Precio, base y cobertura (Cont.)
+
 - **Regla práctica de cobertura:**
   - **Largo** futuros para cubrir **alza** en compras futuras.
   - **Corto** futuros para cubrir **baja** en inventarios.
@@ -165,40 +199,49 @@ $$
 
 --
 
-## 2.4 Swaps de interés — Tasa fija “par” y valoración (1/2)
+## 2.4 Swaps de interés — Tasa fija “par” y valoración (1/3)
 - **Tasa fija par** $S_{\text{par}}$: hace que el **valor presente** del swap sea $\approx 0$ al inicio.
 - Con factores de descuento $P(0,t_i)$ y **forward rates** $L_i$ (para cada periodo $i$):
 $$
 S_{\text{par}} = 
 \frac{\sum_i P(0,t_i)\, L_i\, \Delta t_i}{\sum_i P(0,t_i)\, \Delta t_i}
 $$
+
+--
+
+## 2.4 Swaps de interés — Tasa fija “par” y valoración (2/3)
+
 - **Valuación posterior:** $\text{VP}(\text{pata fija}) - \text{VP}(\text{pata flotante})$ (ajustado por colateral si aplica).
 
 --
 
-## 2.4 Swaps de interés — Ejemplos y riesgos (2/2)
+## 2.4 Swaps de interés — Ejemplos y riesgos (3/3)
 - **Ejemplo de uso:** empresa con deuda flotante que quiere **fijar** su costo → entra **pagando fijo**.
 - **Riesgos:** contraparte (mitigable con colateral), **mismatch** de fechas/base, liquidez si es OTC.
 - Extensiones: **basis swaps** (flotante–flotante), amortizantes, extensibles.
 
 ---
 
-## 2.5 Forwards — Definición y precio (1/2)
+## 2.5 Forwards — Definición y precio (1/3)
 - Contrato **OTC** para **comprar/vender** el subyacente en $T$ a precio pactado $F_0$.
 - **Sin MTM:** flujo único al vencimiento → mayor **riesgo de contraparte** vs. futuros.
 - **Precio teórico (sin dividendos):**
   - **Compuesto continuo:** $F_0 = S_0 e^{rT}$.
   - **Compuesto discreto:** $F_0 = S_0 (1+r)^T$.
-- Con dividendos conocidos $D$: $F_0 = (S_0 - D)\, e^{rT}$.
 
 --
 
-## 2.5 Forwards — FX e intuiciones (2/2)
+## 2.5 Forwards — FX e intuiciones (2/3)
+- Con dividendos conocidos $D$: $F_0 = (S_0 - D)\, e^{rT}$.
 - **FX forward** (IRP cubierta, continuo):
 $$
 F_0^{\text{FX}} = S_0 \, e^{(r_d - r_f) T}
 $$
 donde $r_d$ = tasa doméstica, $r_f$ = tasa extranjera.
+
+--
+
+## 2.5 Forwards — FX e intuiciones (3/3)
 - **Comparación con futuros:** forwards flexibles (tamaño/fecha), futuros más líquidos/estandarizados.
 - **Aplicaciones:** cobertura de importaciones/exportaciones, cierre de brechas de duración/precio.
 
