@@ -35,6 +35,9 @@ Instrumentos de cobertura de riesgos mediante derivados financieros
 - **2.2 Mercado de opciones**
     - 2.2.1 Características y participantes en el mercado de opciones
     - 2.2.2 Clasificación de las opciones
+
+--
+
     - 2.2.3 Representación gráfica y numérica opciones
 - **2.3 Mercado de futuros**
 - **2.4 Swaps de interés**
@@ -74,7 +77,7 @@ Instrumentos de cobertura de riesgos mediante derivados financieros
 - **Call**: derecho a **comprar** $S$ a $K$. **Put**: derecho a **vender** $S$ a $K$.
 - **Estilo**: europea (solo en $T$) vs. americana (en/antes de $T$).
 
----
+--
 
 ## 2.2 Mercado de opciones — Introducción (Cont.)
 
@@ -169,7 +172,7 @@ $$
 - **Margen inicial** y **de mantenimiento**; **mark-to-market diario**.
 - **Ganancia/pérdida diaria** (1 contrato):
 $$
-\text{P\!\&\!L}_t \approx (F_t - F_{t-1}) \cdot \text{multiplicador}
+\mathrm{PnL}_t \approx (F_t - F_{t-1}) \cdot \mathrm{multiplicador}
 $$
 
 *(signo según largo/corto).*
@@ -177,9 +180,9 @@ $$
 --
 
 ## 2.3 Mercado de futuros — Precio, base y cobertura
-- **Costo de carry (sin dividendos):** $F_0 \approx S_0 e^{rT}$.
-- Con carry/dividendos/costos: $F_0 = S_0 e^{(r + c - y)T}$.
-- **Base:** $\text{Base}_t = S_t - F_t$ (converge a $0$ en $T$).
+- **Costo de carry (sin dividendos):** $F_0 \approx S_0 e^{rT}$
+- Con carry/dividendos/costos: $F_0 = S_0 e^{(r + c - y)T}$
+- **Base:** $\text{Base}_t = S_t - F_t$ (converge a $0$ en $T$)
 - **Riesgo de base** en coberturas reales.
 
 --
