@@ -172,8 +172,9 @@ $$
 - **Margen inicial** y **de mantenimiento**; **mark-to-market diario**.
 - **Ganancia/pérdida diaria** (1 contrato):
 $$
-\mathrm{PnL}_t \approx (F_t - F_{t-1}) \cdot \mathrm{multiplicador}
+\operatorname{PnL}_t \approx (F_t - F_{t-1})\, Multiplicador
 $$
+
 
 *(signo según largo/corto).*
 
