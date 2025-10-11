@@ -121,6 +121,19 @@ $$
   - **Vega** $\uparrow$ con $\sigma$.  
   - **Theta**: decaimiento temporal.
 
+--
+
+### 2.2.4 Representación gráfica
+
+<figure>
+  <img src="images/options.png" alt="Payoff de opciones" style="width:75%; display:block; margin:0 auto;">
+  <figcaption style="margin-top:0.6rem;">
+    <small><strong>Referencia:</strong> Muñoz Moreno, Nicolas. <em>Valoración de una opción call con activo subyacente energía</em>, junio 2017. 
+    <a href="https://repositorio.uniandes.edu.co/server/api/core/bitstreams/95ac4302-f352-4903-920d-59606fdf5ac3/content">https://repositorio.uniandes.edu.co/server/api/core/bitstreams/95ac4302-f352-4903-920d-59606fdf5ac3/content</a>.
+    </small>
+  </figcaption>
+</figure>
+
 ---
 
 ## 2.3 Mercado de futuros — Mecánica
