@@ -23,7 +23,7 @@ Semana 2 | Instrumentos de cobertura de riesgos mediante derivados financieros
 ---
 
 ## Semana 2
-Instrumentos de cobertura de riesgos mediante derivados financieros 
+Instrumentos de Cobertura de Riesgos Mediante Derivados Financieros 
 
 ---
 
@@ -45,7 +45,7 @@ Instrumentos de cobertura de riesgos mediante derivados financieros
 - Funciones económicas: **cobertura**, **especulación**, **arbitraje**.
 - Valoración: principio de **no arbitraje** + réplicas (carteras sintéticas).
 
----
+--
 
 ## 2.1 Definición de instrumento derivado — Conceptos base (2/2)
 - **Mercados:**
@@ -63,7 +63,7 @@ Instrumentos de cobertura de riesgos mediante derivados financieros
 - **Moneyness**: ITM / ATM / OTM.
 - Drivers del precio: $S_0$, $K$, $T$, $r$, **volatilidad** $\sigma$, dividendos.
 
----
+--
 
 ### 2.2.1 Características y participantes
 - **Participantes:**
@@ -71,7 +71,7 @@ Instrumentos de cobertura de riesgos mediante derivados financieros
   - **Comprador** (largo): paga prima, riesgo acotado; **vendedor** (corto): cobra prima, riesgo potencialmente alto.
 - **Microestructura:** mercados listados con **market makers**, libros de órdenes, horquillas.
 
----
+--
 
 ### 2.2.2 Clasificación de las opciones
 - Por subyacente: **equity**, **índices**, **FX**, **tasas**, **commodities**.
@@ -79,7 +79,7 @@ Instrumentos de cobertura de riesgos mediante derivados financieros
 - Por estilo: **europeas** vs **americanas** (early exercise).
 - Por estructura: **vanilla** vs **exóticas** (barrier, asian, digital, etc.).
 
----
+--
 
 ### 2.2.3 Representación gráfica y numérica — Payoffs (1/3)
 - **Call larga (europea)** a vencimiento $T$:
@@ -92,7 +92,7 @@ $$
 \Pi_T^{\text{call short}} = -\max(S_T - K,0) + \text{prima}
 $$
 
----
+--
 
 ### 2.2.3 Representación gráfica y numérica — Payoffs (2/3)
 - **Put larga (europea)** a vencimiento $T$:
@@ -105,7 +105,7 @@ $$
 \Pi_T^{\text{put short}} = -\max(K - S_T,0) + \text{prima}
 $$
 
----
+--
 
 ### 2.2.3 Representación gráfica y numérica — Paridades & ideas (3/3)
 - **Paridad put–call (europeas, sin dividendos):**
@@ -132,7 +132,7 @@ $$
 $$
 *(signo según largo/corto).*
 
----
+--
 
 ## 2.3 Mercado de futuros — Precio, base y cobertura
 - **Costo de carry (sin dividendos):** $F_0 \approx S_0 e^{rT}$.
@@ -150,7 +150,7 @@ $$
 - Motivación: **transformar** perfil de tasas (deuda flotante $\rightarrow$ fija, y viceversa).
 - **Equivalencia:** un swap $\approx$ **portafolio de FRAs** (Forward Rate Agreements).
 
----
+--
 
 ## 2.4 Swaps de interés — Tasa fija “par” y valoración (1/2)
 - **Tasa fija par** $S_{\text{par}}$: hace que el **valor presente** del swap sea $\approx 0$ al inicio.
@@ -161,7 +161,7 @@ S_{\text{par}} =
 $$
 - **Valuación posterior:** $\text{VP}(\text{pata fija}) - \text{VP}(\text{pata flotante})$ (ajustado por colateral si aplica).
 
----
+--
 
 ## 2.4 Swaps de interés — Ejemplos y riesgos (2/2)
 - **Ejemplo de uso:** empresa con deuda flotante que quiere **fijar** su costo → entra **pagando fijo**.
@@ -178,7 +178,7 @@ $$
   - **Compuesto discreto:** $F_0 = S_0 (1+r)^T$.
 - Con dividendos conocidos $D$: $F_0 = (S_0 - D)\, e^{rT}$.
 
----
+--
 
 ## 2.5 Forwards — FX e intuiciones (2/2)
 - **FX forward** (IRP cubierta, continuo):
