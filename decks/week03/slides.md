@@ -87,8 +87,7 @@ Riesgo de Crédito
 
 ---
 
-# 3.2 Medición del riesgo de crédito
-### Componentes PD, LGD y EAD
+# 3.2 Medición del riesgo de crédito: componentes
 - **Probabilidad de Incumplimiento (PD)**: por horizonte, categoría de riesgo y cohorte.
 - **Severidad de Pérdida (LGD)**: función de colateral, sector y jurisdicción.
 - **Exposición al Incumplimiento (EAD)**: líneas revolventes vs. préstamos a plazo; **utilización** en estrés.
@@ -111,7 +110,7 @@ Riesgo de Crédito
 
 ## Distress corporativo: puntuación Z (Altman) y ZETA®
 - Fórmula clásica (manufactura):  
-  $$ Z = 1.2\,\frac{\text{Capital de trabajo}}{\text{Activos Totales}} + 1.4\,\frac{\text{Utilidades retenidas}}{\text{Activos Totales}} + 3.3\,\frac{\text{EBIT}}{\text{Activos Totales}} + 0.6\,\frac{\text{Valor de mercado del patrimonio}}{\text{Pasivo Total}} + 1.0\,\frac{\text{Ventas}}{\text{Activos Totales}} $$
+  $ Z = 1.2\,\frac{\text{Capital de trabajo}}{\text{Activos Totales}} + 1.4\,\frac{\text{Utilidades retenidas}}{\text{Activos Totales}} + 3.3\,\frac{\text{EBIT}}{\text{Activos Totales}} + 0.6\,\frac{\text{Valor de mercado del patrimonio}}{\text{Pasivo Total}} + 1.0\,\frac{\text{Ventas}}{\text{Activos Totales}}$
 - Uso: señal temprana de **deterioro** y probabilidad de quiebra.
 - Limitaciones por **sector/país**; **ZETA®** ajusta especificidad.
 
@@ -126,13 +125,11 @@ Riesgo de Crédito
 
 ## Comparativas de algoritmos (estado del arte)
 - Modelos: árboles de decisión, máquinas de vectores de soporte, redes neuronales, **ensembles**, regresión logística, análisis discriminante.
-- Hallazgo general: **ensembles** bien ajustados suelen liderar, pero depende del **conjunto de datos** y la métrica.
 - Implicación clave: **gobernanza de modelos** y validación rigurosa > “modelo milagro”.
 
 ---
 
 # 3.3 Ratings financieros
-### Propósito y lectura
 - Evaluación externa del **riesgo del emisor** (salvo ratings específicos de instrumento).
 - Mapa **rating → spread**: peor rating ⇒ mayor **prima de riesgo**.
 - Limitaciones: horizonte, discrecionalidad, cambios discretos y rezagos.
@@ -155,6 +152,9 @@ Riesgo de Crédito
 
 # 3.4 Cobertura de riesgos de crédito
 ### Visión integrada: estructura y coberturas
+
+--
+
 - Vínculos: **apalancamiento–cobertura–rating–spread** (círculo virtuoso/vicioso).
 - Palancas del CFO: reducir deuda cara, alargar **vencimientos**, elevar **Índice de Cobertura de Intereses (ICR)**.
 - Señal a mercado: métricas sólidas ⇒ **costo de fondeo** más bajo.
@@ -176,7 +176,7 @@ Riesgo de Crédito
 --
 
 ## Cierre operativo
-- Checklist: $$ EL=PD\times LGD\times EAD $$, lectura de puntuación Z, métricas de cobertura (ICR, Deuda/EBITDA), coherencia rating–spread.
+- Checklist:$ EL=PD\times LGD\times EAD $, lectura de puntuación Z, métricas de cobertura (ICR, Deuda/EBITDA), coherencia rating–spread.
 - Priorización: **mejorar cobertura y liquidez**, **ajustar apalancamiento**, **alinear vencimientos**.
 - Entorno y gobernanza: monitoreo de métricas, backtesting y revisión de modelos.
 
