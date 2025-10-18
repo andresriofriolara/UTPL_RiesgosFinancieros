@@ -45,15 +45,15 @@ Riesgo de Crédito
 ---
 
 ## 3.1 Riesgo de crédito: Elementos Clave
-- **Pérdida Esperada (Expected Loss, EL)**: \( EL = PD \times LGD \times EAD \).
-- **Pérdida No Esperada (Unexpected Loss)**: volatilidad alrededor de \( EL \) → **capital económico**.
+- **Pérdida Esperada (Expected Loss, EL)**: $EL = PD \times LGD \times EAD$.
+- **Pérdida No Esperada (Unexpected Loss)**: volatilidad alrededor de $ EL $ → **capital económico**.
 - Conexiones: **liquidez** (préstamos en mora ↑ → tensión de fondeo) y **tasas de interés** (ajustes de spreads).
 
 --
 
 ## Exposición y recuperabilidad
 - **Exposición al Incumplimiento (EAD)**: saldo + compromisos no utilizados (ponderados).
-- **Severidad de Pérdida (LGD)**: \( LGD = 1 - \text{tasa de recuperación} \); depende de garantías, prioridad de cobro y costos.
+- **Severidad de Pérdida (LGD)**: $ LGD = 1 - \text{tasa de recuperación} $; depende de garantías, prioridad de cobro y costos.
 - Políticas de **colateral** y **seniority** mejoran recuperabilidad ⇒ reducen **LGD**.
 
 --
@@ -61,7 +61,7 @@ Riesgo de Crédito
 ## Medición (I): Lectura financiera base
 - **Liquidez**: razón corriente, prueba ácida ⇒ colchón de caja.
 - **Solvencia/Apalancamiento**: Deuda/**Earnings Before Interest, Taxes, Depreciation and Amortization (EBITDA)**; Deuda/Patrimonio.
-- **Cobertura**: **Índice de Cobertura de Intereses (ICR)** \(=\frac{\text{EBIT}}{\text{Gasto por intereses}}\); Flujo de Caja Libre/Deuda.
+- **Cobertura**: **Índice de Cobertura de Intereses (ICR)** $=\frac{\text{EBIT}}{\text{Gasto por intereses}}$; Flujo de Caja Libre/Deuda.
 - **Rentabilidad/Eficiencia**: **Return on Assets (ROA)**, **Return on Equity (ROE)**, márgenes.
 
 --
@@ -111,7 +111,7 @@ Riesgo de Crédito
 
 ## Distress corporativo: puntuación Z (Altman) y ZETA®
 - Fórmula clásica (manufactura):  
-  \( Z = 1.2\,\frac{\text{Capital de trabajo}}{\text{Activos Totales}} + 1.4\,\frac{\text{Utilidades retenidas}}{\text{Activos Totales}} + 3.3\,\frac{\text{EBIT}}{\text{Activos Totales}} + 0.6\,\frac{\text{Valor de mercado del patrimonio}}{\text{Pasivo Total}} + 1.0\,\frac{\text{Ventas}}{\text{Activos Totales}} \).
+  $$ Z = 1.2\,\frac{\text{Capital de trabajo}}{\text{Activos Totales}} + 1.4\,\frac{\text{Utilidades retenidas}}{\text{Activos Totales}} + 3.3\,\frac{\text{EBIT}}{\text{Activos Totales}} + 0.6\,\frac{\text{Valor de mercado del patrimonio}}{\text{Pasivo Total}} + 1.0\,\frac{\text{Ventas}}{\text{Activos Totales}} $$
 - Uso: señal temprana de **deterioro** y probabilidad de quiebra.
 - Limitaciones por **sector/país**; **ZETA®** ajusta especificidad.
 
@@ -176,7 +176,7 @@ Riesgo de Crédito
 --
 
 ## Cierre operativo
-- Checklist: \( EL=PD\times LGD\times EAD \), lectura de puntuación Z, métricas de cobertura (ICR, Deuda/EBITDA), coherencia rating–spread.
+- Checklist: $$ EL=PD\times LGD\times EAD $$, lectura de puntuación Z, métricas de cobertura (ICR, Deuda/EBITDA), coherencia rating–spread.
 - Priorización: **mejorar cobertura y liquidez**, **ajustar apalancamiento**, **alinear vencimientos**.
 - Entorno y gobernanza: monitoreo de métricas, backtesting y revisión de modelos.
 
