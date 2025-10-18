@@ -154,12 +154,14 @@ Riesgo de Crédito
   + 1.4\,\frac{\text{Utilidades retenidas}}{\text{Activos Totales}} 
   + 3.3\,\frac{\text{EBIT}}{\text{Activos Totales}}
   $$
+ </div>
 
+  <div class="eq-xs">
   $$
   + 0.6\,\frac{\text{Valor de mercado del patrimonio}}{\text{Pasivo Total}} 
   + 1.0\,\frac{\text{Ventas}}{\text{Activos Totales}}
   $$
-  </div>
+ </div>
 
 --
 
