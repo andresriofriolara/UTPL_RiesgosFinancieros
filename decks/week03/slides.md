@@ -1,3 +1,28 @@
+<style>
+  .hrow-3{
+    height:100%;
+    display:flex;
+    align-items:center;          /* vertical centering */
+    justify-content:space-between;
+    gap:2rem;
+    padding:0 2rem;
+  }
+  .hrow-3 .cell{
+    flex:1 1 0;                  /* equal-width columns */
+    display:flex;
+    justify-content:center;      /* center each image inside its cell */
+  }
+  .hrow-3 img{
+    max-height:60vh;             /* uniform heights fit on slide */
+    max-width:30vw;              /* prevents overflow in narrow screens */
+    width:auto;
+    height:auto;
+    object-fit:contain;
+    display:block;
+  }
+</style>
+
+
 <section class="title-slide">
 Semana 3 | Riesgo de Crédito
 <div class="subtitle">Ingeniería Financiera y Administración de Riesgos Financieros • <em>Octubre 21, 2025</em></div>
@@ -147,6 +172,34 @@ Riesgo de Crédito
 - Intuición: spread = riesgo idiosincrático del emisor + condiciones de mercado (liquidez y tasa base).
 - Más apalancamiento y menor cobertura ⇒ spread mayor.
 - En pricing: ajuste de tasa según **Pérdida Esperada (EL)** y **capital** requerido.
+
+--
+
+<div class="hrow-3">
+  <div class="cell">
+    <img src="./images/moodys1.png" alt="Coverage to Rating/Spread — Smaller and riskier non-financial service firms">
+  </div>
+  <div class="cell">
+    <img src="./images/moodys2.png" alt="Coverage to Rating/Spread — Financial service firms">
+  </div>
+  <div class="cell">
+    <img src="./images/moodys3.png" alt="Coverage to Rating/Spread — Large non-financial service firms">
+  </div>
+</div>
+
+--
+
+<div class="hrow-3">
+  <div class="cell">
+    <img src="./images/sp1.png" alt="Spread panel 1">
+  </div>
+  <div class="cell">
+    <img src="./images/sp2.png" alt="Spread panel 2">
+  </div>
+  <div class="cell">
+    <img src="./images/sp3.png" alt="Spread panel 3">
+  </div>
+</div>
 
 --
 
