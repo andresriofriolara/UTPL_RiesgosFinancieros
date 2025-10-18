@@ -152,11 +152,16 @@ Riesgo de Crédito
   $$ 
   Z = 1.2\,\frac{\text{Capital de trabajo}}{\text{Activos Totales}} 
   + 1.4\,\frac{\text{Utilidades retenidas}}{\text{Activos Totales}} 
-  + 3.3\,\frac{\text{EBIT}}{\text{Activos Totales}} 
+  + 3.3\,\frac{\text{EBIT}}{\text{Activos Totales}}
+  $$
+
+  $$
   + 0.6\,\frac{\text{Valor de mercado del patrimonio}}{\text{Pasivo Total}} 
   + 1.0\,\frac{\text{Ventas}}{\text{Activos Totales}}
   $$
   </div>
+
+--
 
 - Uso: señal temprana de **deterioro** y probabilidad de quiebra.
 - Limitaciones por **sector/país**; **ZETA®** ajusta especificidad.
