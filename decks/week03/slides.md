@@ -22,6 +22,16 @@
   }
 </style>
 
+<style>
+  /* Tiny equation helper that works with KaTeX or MathJax */
+  .eq-xs .katex-display,
+  .eq-xs .katex { font-size: 0.58em !important; line-height: 1.1; }
+  .eq-xs .MathJax, 
+  .eq-xs .mjx-chtml { font-size: 0.58em !important; line-height: 1.1; }
+  /* keep it from overflowing horizontally */
+  .eq-xs { overflow-x: auto; }
+</style>
+
 
 <section class="title-slide">
 Semana 3 | Riesgo de Crédito
@@ -86,6 +96,9 @@ Riesgo de Crédito
 ## Medición (I): Lectura financiera base
 - **Liquidez**: razón corriente, prueba ácida ⇒ colchón de caja.
 - **Solvencia/Apalancamiento**: Deuda/**Earnings Before Interest, Taxes, Depreciation and Amortization (EBITDA)**; Deuda/Patrimonio.
+
+--
+
 - **Cobertura**: **Índice de Cobertura de Intereses (ICR)** $=\frac{\text{EBIT}}{\text{Gasto por intereses}}$; Flujo de Caja Libre/Deuda.
 - **Rentabilidad/Eficiencia**: **Return on Assets (ROA)**, **Return on Equity (ROE)**, márgenes.
 
@@ -112,7 +125,7 @@ Riesgo de Crédito
 
 ---
 
-# 3.2 Medición del riesgo de crédito: componentes
+# 3.2 Medición del riesgo de crédito
 - **Probabilidad de Incumplimiento (PD)**: por horizonte, categoría de riesgo y cohorte.
 - **Severidad de Pérdida (LGD)**: función de colateral, sector y jurisdicción.
 - **Exposición al Incumplimiento (EAD)**: líneas revolventes vs. préstamos a plazo; **utilización** en estrés.
@@ -133,9 +146,18 @@ Riesgo de Crédito
 
 --
 
-## Distress corporativo: puntuación Z (Altman) y ZETA®
-- Fórmula clásica (manufactura):  
-  $ Z = 1.2\,\frac{\text{Capital de trabajo}}{\text{Activos Totales}} + 1.4\,\frac{\text{Utilidades retenidas}}{\text{Activos Totales}} + 3.3\,\frac{\text{EBIT}}{\text{Activos Totales}} + 0.6\,\frac{\text{Valor de mercado del patrimonio}}{\text{Pasivo Total}} + 1.0\,\frac{\text{Ventas}}{\text{Activos Totales}}$
+## Distress corporativo: puntuación Z (Altman)
+- Fórmula clásica (manufactura):
+  <div class="eq-xs">
+  $$ 
+  Z = 1.2\,\frac{\text{Capital de trabajo}}{\text{Activos Totales}} 
+  + 1.4\,\frac{\text{Utilidades retenidas}}{\text{Activos Totales}} 
+  + 3.3\,\frac{\text{EBIT}}{\text{Activos Totales}} 
+  + 0.6\,\frac{\text{Valor de mercado del patrimonio}}{\text{Pasivo Total}} 
+  + 1.0\,\frac{\text{Ventas}}{\text{Activos Totales}}
+  $$
+  </div>
+
 - Uso: señal temprana de **deterioro** y probabilidad de quiebra.
 - Limitaciones por **sector/país**; **ZETA®** ajusta especificidad.
 
@@ -191,13 +213,13 @@ Riesgo de Crédito
 
 <div class="hrow-3">
   <div class="cell">
-    <img src="./images/sp1.png" alt="Spread panel 1">
+    <img src="./images/SP1.png" alt="Spread panel 1">
   </div>
   <div class="cell">
-    <img src="./images/sp2.png" alt="Spread panel 2">
+    <img src="./images/SP2.png" alt="Spread panel 2">
   </div>
   <div class="cell">
-    <img src="./images/sp3.png" alt="Spread panel 3">
+    <img src="./images/SP3.png" alt="Spread panel 3">
   </div>
 </div>
 
