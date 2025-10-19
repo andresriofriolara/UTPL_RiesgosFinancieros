@@ -232,8 +232,6 @@ Riesgo de Crédito
 
 --
 
-## 3.2.2 Múltiplos - Un ejemplo práctico (1/3)
-
 <img src="./images/coverages.png" alt="Coverages">
 
 --
