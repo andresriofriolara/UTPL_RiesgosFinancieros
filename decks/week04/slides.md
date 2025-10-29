@@ -76,23 +76,19 @@ Riesgo de interés y liquidez
 
 - Definición: posibilidad de **no cumplir obligaciones de caja** a tiempo **sin pérdidas inaceptables**.
 - Dos manifestaciones: **liquidez de fondeo** (renovar pasivos/captar) y **liquidez de mercado** (vender activos sin descuentos severos).
-- Brecha de liquidez a horizonte \(h\):  
-  $$
+- Brecha de liquidez a horizonte $h$:  
+  $
   \text{Gap}_h=\text{Entradas}_h-\text{Salidas}_h+\text{Activos Líquidos de Alta Calidad (High-Quality Liquid Assets, HQLA)}_h
-  $$
+  $
 
 --
 
 ## Indicadores clave de liquidez
 
 - **Índice de Cobertura de Liquidez (Liquidity Coverage Ratio, LCR)**:  
-  $$
-  \text{LCR}=\frac{\text{Activos Líquidos de Alta Calidad (HQLA)}}{\text{Salidas netas a 30 días}}\ge 100\%
-  $$
+  $\text{LCR}=\frac{\text{Activos Líquidos de Alta Calidad (HQLA)}}{\text{Salidas netas a 30 días}}\ge 100\%$
 - **Índice de Fondeo Estable Neto (Net Stable Funding Ratio, NSFR)**:  
-  $$
-  \text{NSFR}=\frac{\text{Fondeo Estable Disponible (Available Stable Funding, ASF)}}{\text{Fondeo Estable Requerido (Required Stable Funding, RSF)}}\ge 100\%
-  $$
+  $\text{NSFR}=\frac{\text{Fondeo Estable Disponible (Available Stable Funding, ASF)}}{\text{Fondeo Estable Requerido (Required Stable Funding, RSF)}}\ge 100\%$
 - Complemento: análisis de **brechas por vencimiento** en “buckets”.
 
 --
@@ -109,10 +105,8 @@ Riesgo de interés y liquidez
 
 - Escenarios **idiosincráticos** y **sistémicos**: supuestos de **run-off** de depósitos, **haircuts** y **cierres de mercado**.
 - Superávit diario \(t\) a 30 días:  
-  $$
-  \text{Superávit}_t=\text{Entradas}_t-\text{Salidas}_t+\text{Ventas HQLA}_t-\text{Haircuts}_t
-  $$
-- Objetivo: \(\min_t \text{Superávit}_t \ge 0\) y límites/activadores coherentes.
+-  $\text{Superávit}_t=\text{Entradas}_t-\text{Salidas}_t+\text{Ventas HQLA}_t-\text{Haircuts}_t$
+- Objetivo: $(\min_t \text{Superávit}_t \ge 0)$ y límites/activadores coherentes.
 
 --
 
@@ -122,18 +116,6 @@ Riesgo de interés y liquidez
 - **Plan de Contingencia de Liquidez (Contingency Funding Plan, CFP)**: fuentes a activar, orden de uso, comunicación interna/externa, pruebas periódicas.
 - Principio: minimizar el **costo esperado** sujeto a cumplimiento de obligaciones.
 
---
-
-## Mini-caso de discusión (liquidez)
-
-- Choque: retiro de depósitos \(x\%\) + mercados mayoristas intermitentes.
-- Decisiones: vender \(V\) de HQLA con **descuento (haircut) \(h\)** y activar línea \(L\) a tasa \(r_L\).
-- Efectivo neto:  
-  $$
-  (1-h)\,V + L - \text{costos de transacción}\ \ge\ \text{Salidas proyectadas}
-  $$
-- Debate: **costo vs reputación** y preservación de colateral.
-
 ---
 
 ## 4.2 Riesgo de interés
@@ -142,6 +124,9 @@ Riesgo de interés y liquidez
 
 - **Estructura temporal de tasas**: curva spot \(y(\tau)\); shocks **paralelos**, de **inclinación** y de **curvatura**.
 - Dos lentes: **Ingreso Neto por Intereses (NII)** (1–2 años) y **Valor Económico del Patrimonio (EVE)** (descuento de flujos).
+
+--
+
 - Sensibilidad elemental:  
   $$
   \frac{dP}{dy}=-D_{\text{mod}}\,P,\quad \frac{d^2P}{dy^2}=C\,P
@@ -153,9 +138,11 @@ Riesgo de interés y liquidez
 
 - **Ingreso Neto por Intereses (NII)** (corto plazo):  
   $$
-  \Delta \text{NII}\approx \sum_i \Delta r_i \cdot \text{Volumen}_i^{\text{repricing}}
-  - \sum_j \Delta r_j \cdot \text{Volumen}_j^{\text{repricing}}
+  \Delta \text{NII}\approx \sum_i \Delta r_i \cdot \text{Volumen}_i^{\text{repricing}} - \sum_j \Delta r_j \cdot \text{Volumen}_j^{\text{repricing}}
   $$
+
+--
+
 - **Valor Económico del Patrimonio (EVE)** (largo plazo):  
   $$
   \frac{\Delta \text{EVE}}{\text{EVE}}\approx -D_{\text{equiv}}\,\Delta y+\tfrac{1}{2}C_{\text{equiv}}(\Delta y)^2
@@ -166,11 +153,14 @@ Riesgo de interés y liquidez
 
 ## Duración de Macaulay y Modificada
 
-- Precio: \(P=\sum_t \dfrac{CF_t}{(1+y)^t}\).
+- Precio: $P=\sum_t \dfrac{CF_t}{(1+y)^t}$.
 - **Duración de Macaulay**:  
   $$
   D_M=\frac{\sum_t t\,\dfrac{CF_t}{(1+y)^t}}{P}
   $$
+
+--
+
 - **Duración Modificada**:  
   $$
   D_{\text{mod}}=\frac{D_M}{1+y}
@@ -185,6 +175,9 @@ Riesgo de interés y liquidez
   $$
   C=\frac{1}{P}\sum_t \frac{CF_t\,t(t+1)}{(1+y)^{t+2}}
   $$
+
+--
+
 - Ajuste de segundo orden:  
   $$
   \frac{\Delta P}{P}\approx -D_{\text{mod}}\,\Delta y+\tfrac{1}{2}C(\Delta y)^2
@@ -196,9 +189,7 @@ Riesgo de interés y liquidez
 ## Duración efectiva con opcionalidades
 
 - Con **prepago**, **opción de rescate (call)** o **depósitos sin vencimiento**, usar **Duración Efectiva**:  
-  $$
-  D_{\text{ef}}=\frac{P(y-\Delta y)-P(y+\Delta y)}{2\,P(y)\,\Delta y}
-  $$
+  $D_{\text{ef}}=\frac{P(y-\Delta y)-P(y+\Delta y)}{2\,P(y)\,\Delta y}$
 - Dependencias: nivel de tasas y **comportamiento del cliente** (elasticidad de depósitos).
 
 --
@@ -207,23 +198,8 @@ Riesgo de interés y liquidez
 
 - Enfoque por “buckets” de **repricing** de activos y pasivos.
 - Sensibilidad de **Ingreso Neto por Intereses (NII)** a shock paralelo:  
-  $$
-  \Delta \text{NII}\approx \Delta y \cdot 
-  \Big(\sum_{i}\text{Vol}_i\cdot \beta_i - \sum_{j}\text{Vol}_j\cdot \beta_j\Big)
-  $$
-  donde \(\beta\) es la **transmisión** de la tasa de mercado a la tasa efectiva.
-
---
-
-## Ejemplo guiado de sensibilidad
-
-- Supuestos: \(D_{\text{mod}}=4.2\), \(\Delta y=+100\) puntos básicos \(=0.01\).
-- Aproximación lineal: \(\Delta P/P\approx -4.2\%\).
-- Con convexidad \(C=0.25\):  
-  $$
-  \Delta P/P\approx -4.2\%+\tfrac{1}{2}\cdot 0.25 \cdot (0.01)^2\approx -4.1875\%
-  $$
-- Nota: shocks grandes o no paralelos → evaluar por tramos.
+  $\Delta \text{NII}\approx \Delta y \cdot \Big(\sum_{i}\text{Vol}_i\cdot \beta_i - \sum_{j}\text{Vol}_j\cdot \beta_j\Big)$
+  donde $\beta$ es la **transmisión** de la tasa de mercado a la tasa efectiva.
 
 --
 
@@ -238,10 +214,12 @@ Riesgo de interés y liquidez
 
 ## 4.3 Cobertura de riesgos de interés
 
+--
+
 ### Estrategias de cobertura: panorama
 
 - Objetivos: **estabilizar Ingreso Neto por Intereses (NII)** o **proteger Valor Económico del Patrimonio (EVE)**.
-- Política: objetivos medibles (p. ej., límite a \(\Delta\)EVE bajo +200 pb), instrumentos permitidos, límites de **riesgo de base (basis)**.
+- Política: objetivos medibles (p. ej., límite a $\Delta$ EVE bajo +200 pb), instrumentos permitidos, límites de **riesgo de base (basis)**.
 - Métrica de eficiencia: reducción de sensibilidad neta vs **costo** y **complejidad**.
 
 --
@@ -250,6 +228,9 @@ Riesgo de interés y liquidez
 
 - **Swap de tasas de interés (IRS)**: intercambio de flujos **fijo–variable** sobre nocional \(N\).
 - Para cartera “larga duración”, **pagar fijo y recibir variable** reduce la duración neta.
+
+--
+
 - Sensibilidad (aprox.):  
   $$
   \frac{\Delta P_{\text{IRS}}}{N}\approx -D_{\text{IRS}}\,\Delta y
@@ -262,6 +243,9 @@ Riesgo de interés y liquidez
 
 - **Futuros** (p. ej., sobre bonos del Tesoro) y **Acuerdos de Tasas a Futuro (FRA)** fijan hoy tasas futuras.
 - Uso: coberturas tácticas de **repricing** para estabilizar **Ingreso Neto por Intereses (NII)**.
+
+--
+
 - Dimensionamiento con **DV01** (cambio de precio por 1 pb):  
   $$
   N_{\text{fut}}\approx \frac{\Delta \text{EVE objetivo}}{\text{DV01}_{\text{bono \,CTD}}\cdot \text{Factor de conversión}}
@@ -274,10 +258,11 @@ Riesgo de interés y liquidez
 
 - **Techo (cap)** limita subida de tasas en pasivos a tasa variable; **piso (floor)** asegura rendimiento mínimo; **collar** combina ambos reduciendo prima.
 - Beneficio: protección **asimétrica** (mantiene upside si bajan tasas).
+
+--
+
 - Efecto sobre duración **no lineal** (delta y gamma):  
-  $$
-  D_{\text{ef, cubierto}}\approx D_{\text{base}}+\Delta_{\text{opción}}\cdot D_{\text{subyacente}}+\text{término de gamma}
-  $$
+  $D_{\text{ef, cubierto}}\approx D_{\text{base}}+\Delta_{\text{opción}}\cdot D_{\text{subyacente}}+\text{término de gamma}$
 
 --
 
@@ -299,6 +284,9 @@ Riesgo de interés y liquidez
   $$
   N_H\approx \frac{(D^*-D_P)\,P_P}{D_H\,P_H}
   $$
+
+--
+
 - En términos de **DV01**:  
   $$
   N_H\approx \frac{\text{DV01 objetivo}-\text{DV01 cartera}}{\text{DV01 del hedge}}
@@ -311,10 +299,11 @@ Riesgo de interés y liquidez
 
 - Portafolio valor \(P_P\), duración \(D_P=5.0\), objetivo \(D^*=3.0\).
 - Usar **Swap de tasas de interés (IRS)** con \(D_H\approx 4.5\), \(P_H\approx 1\).
+
+--
+
 - Nocional:  
-  $$
-  N_{\text{IRS}}\approx \frac{(3.0-5.0)P_P}{4.5\cdot 1}=-\frac{2}{4.5}P_P\ \approx\ -0.444\,P_P
-  $$
+  $N_{\text{IRS}}\approx \frac{(3.0-5.0)P_P}{4.5\cdot 1}=-\frac{2}{4.5}P_P\ \approx\ -0.444\,P_P$
   Signo negativo: posición **pagar fijo** para reducir duración “larga”.
 - Verificar **convexidad residual** y **riesgo de base (basis)**; si el objetivo fuera **NII**, mapear **repricing** y **resets**.
 
