@@ -83,7 +83,7 @@ Riesgo de interés y liquidez
   $
   \text{Gap}_h=\text{Entradas}_h-\text{Salidas}_h+$
   $
-  \text{Activos Líquidos de Alta Calidad (High-Quality Liquid Assets, HQLA)}_h
+  \text{Activos Líquidos de Alta Calidad (HQLA)}_h
   $
 
 --
@@ -116,7 +116,7 @@ Riesgo de interés y liquidez
 -  $\text{Superávit}_t=\text{Entradas}_t-\text{Salidas}_t+$
 $\text{Ventas HQLA}_t-\text{Haircuts}_t$
 
--- 
+--
 
 - Objetivo: $(\min_t \text{Superávit}_t \ge 0)$ y límites/activadores coherentes.
 
