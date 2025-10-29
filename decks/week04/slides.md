@@ -76,9 +76,14 @@ Riesgo de interés y liquidez
 
 - Definición: posibilidad de **no cumplir obligaciones de caja** a tiempo **sin pérdidas inaceptables**.
 - Dos manifestaciones: **liquidez de fondeo** (renovar pasivos/captar) y **liquidez de mercado** (vender activos sin descuentos severos).
+
+--
+
 - Brecha de liquidez a horizonte $h$:  
   $
-  \text{Gap}_h=\text{Entradas}_h-\text{Salidas}_h+\text{Activos Líquidos de Alta Calidad (High-Quality Liquid Assets, HQLA)}_h
+  \text{Gap}_h=\text{Entradas}_h-\text{Salidas}_h+$
+  $
+  \text{Activos Líquidos de Alta Calidad (High-Quality Liquid Assets, HQLA)}_h
   $
 
 --
@@ -87,8 +92,11 @@ Riesgo de interés y liquidez
 
 - **Índice de Cobertura de Liquidez (Liquidity Coverage Ratio, LCR)**:  
   $\text{LCR}=\frac{\text{Activos Líquidos de Alta Calidad (HQLA)}}{\text{Salidas netas a 30 días}}\ge 100\%$
+
+--
+
 - **Índice de Fondeo Estable Neto (Net Stable Funding Ratio, NSFR)**:  
-  $\text{NSFR}=\frac{\text{Fondeo Estable Disponible (Available Stable Funding, ASF)}}{\text{Fondeo Estable Requerido (Required Stable Funding, RSF)}}\ge 100\%$
+  $\text{NSFR}=\frac{\text{Fondeo Estable Disponible (ASF)}}{\text{Fondeo Estable Requerido (RSF)}}\ge 100\%$
 - Complemento: análisis de **brechas por vencimiento** en “buckets”.
 
 --
@@ -103,9 +111,13 @@ Riesgo de interés y liquidez
 
 ## Pruebas de estrés de liquidez
 
-- Escenarios **idiosincráticos** y **sistémicos**: supuestos de **run-off** de depósitos, **haircuts** y **cierres de mercado**.
+- Escenarios idiosincráticos y sistémicos: supuestos de corrida de depósitos, haircuts y cierres de mercado.
 - Superávit diario \(t\) a 30 días:  
--  $\text{Superávit}_t=\text{Entradas}_t-\text{Salidas}_t+\text{Ventas HQLA}_t-\text{Haircuts}_t$
+-  $\text{Superávit}_t=\text{Entradas}_t-\text{Salidas}_t+$
+$\text{Ventas HQLA}_t-\text{Haircuts}_t$
+
+-- 
+
 - Objetivo: $(\min_t \text{Superávit}_t \ge 0)$ y límites/activadores coherentes.
 
 --
@@ -122,7 +134,7 @@ Riesgo de interés y liquidez
 
 ### Riesgo de tasa — conceptos base
 
-- **Estructura temporal de tasas**: curva spot \(y(\tau)\); shocks **paralelos**, de **inclinación** y de **curvatura**.
+- **Estructura temporal de tasas**: curva spot $y(\tau)$; shocks **paralelos**, de **inclinación** y de **curvatura**.
 - Dos lentes: **Ingreso Neto por Intereses (NII)** (1–2 años) y **Valor Económico del Patrimonio (EVE)** (descuento de flujos).
 
 --
@@ -137,9 +149,9 @@ Riesgo de interés y liquidez
 ## NII vs EVE: cuándo usar cada uno
 
 - **Ingreso Neto por Intereses (NII)** (corto plazo):  
-  $$
-  \Delta \text{NII}\approx \sum_i \Delta r_i \cdot \text{Volumen}_i^{\text{repricing}} - \sum_j \Delta r_j \cdot \text{Volumen}_j^{\text{repricing}}
-  $$
+  $\Delta \text{NII}\approx \sum_i \Delta r_i \cdot \text{Volumen}_i^{\text{repricing}} -$ 
+  
+  $\sum_j \Delta r_j \cdot \text{Volumen}_j^{\text{repricing}}$
 
 --
 
@@ -165,7 +177,7 @@ Riesgo de interés y liquidez
   $$
   D_{\text{mod}}=\frac{D_M}{1+y}
   $$
-- Aproximación: \(\dfrac{\Delta P}{P}\approx -D_{\text{mod}}\,\Delta y\) válida para shocks pequeños y sin opcionalidades.
+- Aproximación: $\dfrac{\Delta P}{P}\approx -D_{\text{mod}}\,\Delta y$ válida para shocks pequeños y sin opcionalidades.
 
 --
 
@@ -198,7 +210,12 @@ Riesgo de interés y liquidez
 
 - Enfoque por “buckets” de **repricing** de activos y pasivos.
 - Sensibilidad de **Ingreso Neto por Intereses (NII)** a shock paralelo:  
-  $\Delta \text{NII}\approx \Delta y \cdot \Big(\sum_{i}\text{Vol}_i\cdot \beta_i - \sum_{j}\text{Vol}_j\cdot \beta_j\Big)$
+
+--
+
+  $$\Delta \text{NII}\approx \Delta y\cdot \Big(\sum_{i}\text{Vol}_i\cdot \beta_i - $$
+  
+  $$\sum_{j}\text{Vol}_j\cdot \beta_j\Big)$$
   donde $\beta$ es la **transmisión** de la tasa de mercado a la tasa efectiva.
 
 --
@@ -235,7 +252,7 @@ Riesgo de interés y liquidez
   $$
   \frac{\Delta P_{\text{IRS}}}{N}\approx -D_{\text{IRS}}\,\Delta y
   $$
-  con \(D_{\text{IRS}}\) dependiente de cupones fijos y **resets** del tramo variable.
+  con $D_{\text{IRS}}$ dependiente de cupones fijos y **resets** del tramo variable.
 
 --
 
@@ -262,7 +279,9 @@ Riesgo de interés y liquidez
 --
 
 - Efecto sobre duración **no lineal** (delta y gamma):  
-  $D_{\text{ef, cubierto}}\approx D_{\text{base}}+\Delta_{\text{opción}}\cdot D_{\text{subyacente}}+\text{término de gamma}$
+  $D_{\text{ef, cubierto}}\approx D_{\text{base}}+\Delta_{\text{opción}}\cdot D_{\text{subyacente}}+$
+
+    $\text{término gamma}$
 
 --
 
@@ -297,8 +316,8 @@ Riesgo de interés y liquidez
 
 ## Caso corto de inmunización
 
-- Portafolio valor \(P_P\), duración \(D_P=5.0\), objetivo \(D^*=3.0\).
-- Usar **Swap de tasas de interés (IRS)** con \(D_H\approx 4.5\), \(P_H\approx 1\).
+- Portafolio valor $P_P$, duración $D_P=5.0$, objetivo $D^*=3.0$.
+- Usar **Swap de tasas de interés (IRS)** con $D_H\approx 4.5$, $P_H\approx 1$.
 
 --
 
