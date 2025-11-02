@@ -41,6 +41,9 @@ Riesgo Mercado
   $$
   P=\sum_{t=1}^{T}\frac{CF_t}{(1+y)^t}.
   $$
+
+--
+
 - Relación inversa: sube \(y\) ⇒ baja \(P\); baja \(y\) ⇒ sube \(P\).
 - La derivada de \(P\) respecto de \(y\) motiva duración y, luego, convexidad.
 
@@ -51,7 +54,7 @@ Riesgo Mercado
   $$
   D_M=\frac{\sum_{t=1}^{T} t\,\frac{CF_t}{(1+y)^t}}{P}.
   $$
-- Intuición: “centro de gravedad” de los flujos; mayor \(D_M\) ⇒ mayor sensibilidad del precio a \(y\).
+- Intuición: “centro de gravedad” de los flujos; mayor $D_M$ ⇒ mayor sensibilidad del precio a $y$.
 
 --
 
@@ -64,6 +67,9 @@ Riesgo Mercado
   $$
   \frac{\Delta P}{P}\approx -D_{\text{mod}}\;\Delta y.
   $$
+
+--
+
 - Lectura: un cambio de 1 punto porcentual en \(y\) ≈ \(D_{\text{mod}}\)% (con signo negativo) en \(P\).
 
 --
@@ -71,10 +77,11 @@ Riesgo Mercado
 ### PVBP y DV01: sensibilidad en dinero (definiciones en esta diapositiva)
 - **PVBP** (*Price Value of a Basis Point*): cambio de precio por **1 punto básico** de rendimiento; 1 punto básico = \(0{,}01\%\) = \(0{,}0001\).
 - **DV01** (*Dollar Value of 01*): PVBP expresado en unidades monetarias.
+
+--
+
 - Aproximación práctica:
-  $$
-  \text{PVBP}\approx D_{\text{mod}}\times P \times 0{,}0001,\qquad \text{DV01}=\text{PVBP}.
-  $$
+  $\text{PVBP}\approx D_{\text{mod}}\times P \times 0{,}0001,\qquad \text{DV01}=\text{PVBP}$
 - Uso: traducir sensibilidad porcentual a dinero para dimensionar coberturas.
 
 --
@@ -86,6 +93,9 @@ Riesgo Mercado
   C=\frac{1}{P}\frac{\partial^2 P}{\partial y^2}
    =\frac{1}{P}\sum_{t=1}^{T}t(t+1)\frac{CF_t}{(1+y)^{t+2}}.
   $$
+
+--
+
 - Aproximación cuadrática:
   $$
   \frac{\Delta P}{P}\approx -D_{\text{mod}}\Delta y+\frac{1}{2}C(\Delta y)^2.
@@ -101,13 +111,17 @@ Riesgo Mercado
 
 ## 5.2 Duración efectiva, KRD y curva de tasas
 ### Duración efectiva (definida aquí)
-- Para instrumentos con opcionalidad (flujos que dependen de \(y\)).
+- Para instrumentos con opcionalidad (flujos que dependen de y).
+- Generaliza la duración cuando $CF_t$ cambia con la tasa.
+
+--
+
 - Cálculo por “bump & reprice”:
   $$
   D_{\text{ef}}\approx \frac{P_{-}-P_{+}}{2P_0\,\Delta y},
   $$
   con \(P_{+}\) y \(P_{-}\) precios bajo choques \(+\Delta y\) y \(-\Delta y\).
-- Generaliza la duración cuando \(CF_t\) cambia con la tasa.
+
 
 --
 
@@ -135,19 +149,25 @@ Riesgo Mercado
   $$
   \text{DV01}_{\text{cartera}}=\sum_i \text{DV01}_i.
   $$
+
+--
+
 - Con opcionalidad/curvas complejas, preferir KRD por tramos y sumar por clave.
 
 --
 
 ### De medir a decidir: qué neutralizar
 - Selección estratégica: neutralizar **nivel** (paralelo) o **tramos** (pendiente/curvatura) según horizonte y benchmark.
-- Ruta operativa: medir (\(D_{\text{mod}}\), \(C\), KRD) → convertir a dinero (DV01) → definir tramos objetivo.
+- Ruta operativa: medir $D_{\text{mod}}$, $C$, KRD → convertir a dinero (DV01) → definir tramos objetivo.
 
 ---
 
 ## 5.3 Cobertura con futuros y swaps
 ### Forwards y futuros: diferencias operativas (definiciones aquí)
 - **Forward**: contrato a plazo **OTC** (*Over-The-Counter*, negociado bilateralmente); ajuste fino de nocional; sin compensación diaria; riesgo de contraparte.
+
+--
+
 - **Futuro**: contrato estandarizado con compensación y **MTM** (*Mark-To-Market*, liquidación diaria por variación); requiere márgenes.
 - Implicaciones clave: base, liquidez, calendario de vencimientos ⇒ **tracking error** potencial.
 
@@ -156,16 +176,15 @@ Riesgo Mercado
 ### Cobertura con futuros: del DV01 a \(N\) contratos
 - Objetivo: neutralizar DV01 total o por tramos (vía KRD).
 - Dimensionamiento inicial:
-  $$
-  N \approx \frac{\text{DV01}_{\text{posición}}}{\text{DV01}_{\text{futuro}}}\times \rho,
-  $$
-  donde \(\rho\) es la correlación entre \(\Delta P\) de la posición y \(\Delta F\) del futuro.
-- Si \(\rho\) no se usa explícitamente, ajustar luego con el ratio óptimo estimado.
+  $N \approx \frac{\text{DV01}_{\text{posición}}}{\text{DV01}_{\text{futuro}}}\times \rho$
+
+  donde $\rho$ es la correlación entre $\Delta P$ de la posición y $\Delta F$ del futuro.
+- Si $\rho$ no se usa explícitamente, ajustar luego con el ratio óptimo estimado.
 
 --
 
 ### Futuro: práctica de implementación
-- Redondeo de \(N\) por tamaño mínimo del contrato.
+- Redondeo de $N$ por tamaño mínimo del contrato.
 - Gestión del **rollover** (cambio de vencimiento) y costos de margen (inicial/variación).
 - Control del **tracking error** por descalces de duración y especificaciones del subyacente.
 
@@ -186,6 +205,9 @@ Riesgo Mercado
   $$
   N \approx \frac{(D^\*-D_c)\,V_c}{D_s}.
   $$
+
+--
+
 - Verificación posterior: consistencia con DV01/KRD resultantes.
 
 --
@@ -196,6 +218,9 @@ Riesgo Mercado
   $$
   h^\*=\beta=\frac{\operatorname{Cov}(\Delta P,\ \Delta F)}{\operatorname{Var}(\Delta F)}.
   $$
+
+--
+
 - Reducción esperada de varianza:
   $$
   \operatorname{Var}_{\text{hedged}}
@@ -208,7 +233,10 @@ Riesgo Mercado
 - Fuentes: base, descalce de vencimientos, cupones, liquidez, entrega vs. liquidación, horarios de mercado.
 - Mitigación:
   - Usar contratos con duración cercana al activo.
-  - Recalibrar \(h^\*\) con datos recientes y ventanas adecuadas.
+  - Recalibrar $h^\*$ con datos recientes y ventanas adecuadas.
+
+--
+
   - Combinar contratos en tramos (aproximación por KRD).
   - Considerar swaps para estabilidad de duración sin fricción de márgenes.
 
@@ -220,40 +248,40 @@ Riesgo Mercado
 - Objetivo: coherencia entre sensibilidades de ambos lados del balance (por plazo y por tramo).
 - Herramientas: duración, KRD, *gap* y **duration-gap** por tramo.
 
----
+--
 
-## 5.4 Puente a ALM y ejemplos
 ### NII y EaR: métricas de resultado (definidas aquí)
 - **NII (Net Interest Income)**: ingresos por intereses – gastos por intereses en horizonte corto.
 - **EaR (Earnings at Risk)**: pérdida potencial del NII bajo un shock de tasa especificado.
 - Complementan la perspectiva de valor (DV01/EVE) con impacto en resultados.
 
----
+--
 
-## 5.4 Puente a ALM y ejemplos
 ### EVE y duration-gap (definidos aquí)
 - **EVE (Economic Value of Equity)**: valor presente de activos menos pasivos.
 - Aproximación ante choque paralelo \(\Delta y\):
   $$
   \Delta \text{EVE}\approx -D_{\text{gap}}\times \text{EVE}\times \Delta y,
   $$
-  donde \(D_{\text{gap}}\) es la diferencia de duración (activos – pasivos) ponderada por valor.
-- Meta: \(D_{\text{gap}}\approx 0\) para estabilizar EVE.
+  donde $D_{\text{gap}}$ es la diferencia de duración (activos – pasivos) ponderada por valor.
+- Meta: $D_{\text{gap}}\approx 0$ para estabilizar EVE.
 
----
+--
 
-## 5.4 Puente a ALM y ejemplos
 ### Ejemplo I: duración, DV01 y convexidad
 - Bono a 5 años, cupón 6% anual, \(y=5\%\), nominal 100:
   $$
   P=\sum_{t=1}^{5}\frac{CF_t}{(1+0.05)^t}.
   $$
-- Obtener \(D_M\) y \(D_{\text{mod}}=\dfrac{D_M}{1+0.05}\).
+
+--
+
+- Obtener $D_M$ y $D_{\text{mod}}=\dfrac{D_M}{1+0.05}$.
 - **DV01**:
   $$
   \text{DV01}\approx D_{\text{mod}}\times P \times 0.0001.
   $$
-- Con \(\Delta y=+0.005\):
+- Con $\Delta y=+0.005$:
   $$
   \frac{\Delta P}{P}\approx -D_{\text{mod}}\Delta y+\frac{1}{2}C(\Delta y)^2.
   $$
@@ -270,10 +298,9 @@ Riesgo Mercado
 
 --
 
-## 5.4 Puente a ALM y ejemplos
 ### Ejemplo III: ajuste fino con swap
-- Cartera: \(D_c=4.8\) años, \(V_c=50{,}000{,}000\); objetivo \(D^\*=4.0\) años.
-- Swap con \(D_s\approx 7.5\) (entrar **pagador fijo** ⇒ reduce duración).
+- Cartera: $D_c=4.8$ años, $V_c=50{,}000{,}000$; objetivo $D^\*=4.0$ años.
+- Swap con $D_s\approx 7.5$ (entrar **pagador fijo** ⇒ reduce duración).
 - Nocional del swap:
   $$
   N \approx \frac{(4.0-4.8)\times 50{,}000{,}000}{7.5}.
