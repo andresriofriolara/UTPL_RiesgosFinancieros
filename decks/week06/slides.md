@@ -40,15 +40,18 @@ Riesgo Mercado (Cont.)
 - Tres formas de exposición:
   - **Transacción (TX)**: flujos contractuales en moneda extranjera con monto y fecha.
   - **Traducción (TRAD)**: conversión contable de estados financieros a moneda de reporte.
+
+--
+
   - **Económica (ECO)**: sensibilidad de ventas, costos o márgenes al tipo de cambio.
-- Tipo de cambio: \(x_t\) (precio de 1 unidad de moneda extranjera en moneda doméstica).
+- Tipo de cambio: $x_t$ (precio de 1 unidad de moneda extranjera en moneda doméstica).
 
 --
 <!-- .slide: data-background-color="transparent" -->
 ## 6.1.2 Medición de la exposición cambiaria — TX
-- Construir **calendario de flujos** por moneda: \((T_i, Q_i, \text{signo})\).
-- Exposición de transacción neta a \(T\): suma de nocionales equivalentes en moneda de reporte.
-- Valor doméstico de un cobro \(Q\) en \(T\): \(Q \cdot x_T\).
+- Construir **calendario de flujos** por moneda: $(T_i, Q_i, \text{signo})$.
+- Exposición de transacción neta a $T$: suma de nocionales equivalentes en moneda de reporte.
+- Valor doméstico de un cobro $Q$ en $T$: $Q \cdot x_T$.
 - Decisión de cobertura basada en nocional, horizonte y distribución temporal.
 
 --
@@ -62,23 +65,23 @@ Riesgo Mercado (Cont.)
 <!-- .slide: data-background-color="transparent" -->
 ## 6.1.4 Medición de la exposición cambiaria — ECO
 - Estimar **beta cambiaria** de márgenes/EBITDA vía regresión:
-  - \(\Delta \ln(\text{Margen}) = \alpha + \beta\,\Delta \ln(x_t) + \Gamma\mathbf{Z}_t + \varepsilon_t\).
-- Usar \(\beta\) para traducir escenarios de \(x_t\) a variaciones esperadas de resultado.
+  - $\Delta \ln(\text{Margen}) = \alpha + \beta\,\Delta \ln(x_t) + \Gamma\mathbf{Z}_t + \varepsilon_t$.
+- Usar $\beta$ para traducir escenarios de $x_t$ a variaciones esperadas de resultado.
 - Coberturas parciales orientadas a estabilizar márgenes (no necesariamente nocional pleno).
 
 --
 <!-- .slide: data-background-color="transparent" -->
 ## 6.1.5 Medición de la exposición cambiaria — P&L sin cobertura
-- Exportador con cobro \(Q\) en \(T\): valor doméstico \(Q\,x_T\).
-- **P&L no cubierto** relativo a spot \(x_0\): \(Q\,(x_T - x_0)\).
-- Riesgo central: variabilidad de \(x_T\) vs. planificación de caja y márgenes.
+- Exportador con cobro $Q$ en $T$: valor doméstico $Q\,x_T$.
+- **P&L no cubierto** relativo a spot $x_0$: $Q\,(x_T - x_0)$.
+- Riesgo central: variabilidad de $x_T$ vs. planificación de caja y márgenes.
 
 ---
 <!-- .slide: data-background-color="transparent" -->
 ## 6.2.1 Paridad cubierta y precios a término — Notación
-- **Spot** actual: \(x_0\).
-- **Forward** a \(T\): \(F_{0,T}\).
-- Tasas: \(r_d\) (doméstica) y \(r_f\) (extranjera), composición continua salvo indicación.
+- **Spot** actual: $x_0$.
+- **Forward** a $T$: $F_{0,T}$.
+- Tasas: $r_d$ (doméstica) y $r_f$ (extranjera), composición continua salvo indicación.
 - Objetivo: derivar precio forward teórico (**no arbitraje**) y leer **puntos forward**.
 
 --
@@ -87,57 +90,62 @@ Riesgo Mercado (Cont.)
 - **CIP** (*Covered Interest Parity*): igualdad de retornos con cobertura a término.
 - Con composición continua:
   $$
-  F_{0,T} \;=\; x_0\, e^{(r_d - r_f)T}.
+  F_{0,T} = x_0\ e^{(r_d - r_f)T}.
   $$
+
+--
+
 - Con interés simple:
   $$
-  F_{0,T} \;=\; x_0\,\frac{1 + r_d T}{1 + r_f T}.
+  F_{0,T} = x_0\ \frac{1 + r_d T}{1 + r_f T}.
   $$
 - Impide **arbitraje cubierto** entre monedas.
 
 --
 <!-- .slide: data-background-color="transparent" -->
 ## 6.2.3 Forward points y pips (definidos aquí)
-- **Puntos forward**: \(F_{0,T} - x_0\).
-- **Pip** (*percentage in point*): paso mínimo típico; para pares mayoritarios 1 pip = \(10^{-4}\).
-- Lectura económica: puntos forward reflejan diferencial de tasas \(r_d - r_f\) ⇒ **descuento/prima** a término.
+- **Puntos forward**: $F_{0,T} - x_0$.
+- **Pip** (*percentage in point*): paso mínimo típico; para pares mayoritarios 1 pip = $10^{-4}$.
+- Lectura económica: puntos forward reflejan diferencial de tasas $r_d - r_f$ ⇒ **descuento/prima** a término.
 
 --
 <!-- .slide: data-background-color="transparent" -->
 ## 6.2.4 Réplica de CIP — Intuición
-- Estrategia A: invertir 1 en doméstica a \(r_d\).
-- Estrategia B: convertir a extranjera a \(x_0\), invertir a \(r_f\), y cubrir con forward a \(F_{0,T}\).
-- Igualdad de retornos en \(T\) ⇒ exige \(F_{0,T}\) de CIP; si no, **arbitraje**.
+- Estrategia A: invertir 1 en doméstica a $r_d$.
+- Estrategia B: convertir a extranjera a $x_0$, invertir a $r_f$, y cubrir con forward a $F_{0,T}$.
+- Igualdad de retornos en $T4 ⇒ exige $F_{0,T}$ de CIP; si no, **arbitraje**.
 
 ---
 <!-- .slide: data-background-color="transparent" -->
-## 6.2.5 Ejemplo numérico — Cálculo de \(F_{0,T}\) y puntos
-- Datos: \(x_0=1.1000\), \(T=0.5\) años, \(r_d=3\%\), \(r_f=1\%\), comp. continua.
+## 6.2.5 Ejemplo numérico — Cálculo de $F_{0,T}$ y puntos
+- Datos: $x_0=1.1000$, $T=0.5$ años, $r_d=3\%$, $r_f=1\%$, comp. continua.
 - Cálculo:
   $$
   F_{0,T} = 1.1000 \times e^{(0.03 - 0.01)\cdot 0.5}
           \approx 1.1000 \times e^{0.01}
+  $$
+  $$
           \approx 1.1111.
   $$
-- Puntos forward = \(+0.0111\) = **111 pips** ⇒ prima a término.
+- Puntos forward = $+0.0111$ = **111 pips** ⇒ prima a término.
 
 --
 
 <!-- .slide: data-background-color="transparent" -->
 ## 6.2.6 P&L con forward — Cobertura directa
-- Vender a término \(Q\) unidades extranjeras a \(F_{0,T}\) fija la conversión.
-- **P&L cubierto** relativo a \(x_0\):
+- Vender a término $Q$ unidades extranjeras a $F_{0,T}$ fija la conversión.
+- **P&L cubierto** relativo a $x_0$:
   $$
-  Q\,(F_{0,T} - x_0).
+  Q(F_{0,T} - x_0).
   $$
-- Independiente de \(x_T\): elimina incertidumbre de precio de conversión.
+- Independiente de $x_T$: elimina incertidumbre de precio de conversión.
 
 --
 
 <!-- .slide: data-background-color="transparent" -->
 ## 6.2.7 Rollover y costo de carry
 - **Rollover**: cerrar forward próximo a vencimiento y abrir uno nuevo más adelante.
-- **Carry**: secuencia de puntos forward intertemporales (función de \(r_d - r_f\)).
+- **Carry**: secuencia de puntos forward intertemporales (función de $r_d - r_f$).
 - Plan de roll adecuado evita quedar **descubierto** si el calendario real se retrasa.
 
 ---
@@ -152,7 +160,7 @@ Riesgo Mercado (Cont.)
 ## 6.3.2 Medición del tracking error (definido aquí)
 - **Tracking error**: variabilidad del resultado de la cobertura vs. la exposición “ideal”.
 - Fuentes: base contrato/spot, estandarización de vencimientos, MTM y liquidez.
-- Medición: comparar series de \(\Delta x_t\) del flujo con \(\Delta\) del contrato elegido.
+- Medición: comparar series de $\Delta x_t$ del flujo con $\Delta$ del contrato elegido.
 
 --
 <!-- .slide: data-background-color="transparent" -->
@@ -170,21 +178,21 @@ Riesgo Mercado (Cont.)
   h^\* = \beta
       = \frac{\operatorname{Cov}(\Delta S,\ \Delta H)}{\operatorname{Var}(\Delta H)},
   $$
-  donde \(\Delta S\) = cambio del tipo objetivo, \(\Delta H\) = cambio del instrumento.
+  donde $\Delta S$ = cambio del tipo objetivo, $\Delta H$ = cambio del instrumento.
 
 --
 - **Reducción de varianza** esperada:
   $$
   \operatorname{Var}_{\text{hedged}} = \operatorname{Var}(\Delta S)\,(1 - \rho^2),
   $$
-  con \(\rho\) = correlación entre \(\Delta S\) y \(\Delta H\).
+  con $\rho$ = correlación entre $\Delta S$ y $\Delta H$.
 
 --
 <!-- .slide: data-background-color="transparent" -->
 ## 6.3.5 Ejemplo — Cross-hedging con proxy
 - Objetivo: cubrir COP/USD sin contrato líquido; proxy: BRL/USD.
-- Estimar \(\beta\) de \(\Delta\)COP/USD sobre \(\Delta\)BRL/USD.
-- Nocional del hedge = \(\beta \times\) exposición en COP; riesgo residual = parte idiosincrática de COP/USD.
+- Estimar $\beta$ de $\Delta$ COP/USD sobre $\Delta$ BRL/USD.
+- Nocional del hedge = $\beta \times$ exposición en COP; riesgo residual = parte idiosincrática de COP/USD.
 
 --
 
@@ -206,8 +214,8 @@ Riesgo Mercado (Cont.)
 <!-- .slide: data-background-color="transparent" -->
 ## 6.4.1 Operativa, riesgos y contabilidad — VaR/ES residual
 - Aplicar **VaR** (*Value at Risk*) y **ES** (*Expected Shortfall*) a la **exposición residual** post-hedge.
-- VaR\(_\alpha\): pérdida mínima en el \(\alpha\)% peor; ES\(_\alpha\): promedio de pérdidas en ese conjunto.
-- Simular escenarios de \(x_T\) y del instrumento ⇒ distribución del **P&L neto** y verificación de límites.
+- $VaR_\alpha$: pérdida mínima en el $\alpha$% peor; $ES_\alpha$: promedio de pérdidas en ese conjunto.
+- Simular escenarios de $x_T$ y del instrumento ⇒ distribución del **P&L neto** y verificación de límites.
 
 --
 
@@ -238,9 +246,9 @@ Riesgo Mercado (Cont.)
 <!-- .slide: data-background-color="transparent" -->
 ## 6.4.5 Diseño de cobertura con forward — Procedimiento
 - Identificar TX/TRAD/ECO y calendario de flujos.
-- Calcular \(F_{0,T}\) con CIP; leer **puntos forward**.
-- Elegir nocional \(Q\) y vencimiento \(T\); plan de **rollover**.
-- Estimar resultado esperado: \(Q\,(F_{0,T} - x_0)\) y métricas de **VaR/ES** residual.
+- Calcular $F_{0,T}$ con CIP; leer **puntos forward**.
+- Elegir nocional $Q$ y vencimiento $T$; plan de **rollover**.
+- Estimar resultado esperado: $Q\,(F_{0,T} - x_0)$ y métricas de **VaR/ES** residual.
 
 --
 
@@ -255,22 +263,22 @@ Riesgo Mercado (Cont.)
 
 <!-- .slide: data-background-color="transparent" -->
 ## 6.4.7 Caso integrado — Exportador 6m y 12m
-- Cobros \(Q_1\) (6m) y \(Q_2\) (12m); spot \(x_0\); tasas \(r_d, r_f\).
+- Cobros $Q_1$ (6m) y $Q_2$ (12m); spot $x_0$; tasas $r_d, r_f$.
 - Forwards teóricos:
   $$
   F_{0,0.5} = x_0 e^{(r_d - r_f)0.5}, \quad
   F_{0,1}   = x_0 e^{(r_d - r_f)1}.
   $$
-- Plan **por capas**: fijar hoy forwards por \(Q_1\) (6m) y \(Q_2\) (12m).
-- Incertidumbre en \(Q_2\): cubrir con \(h^\* < 1\) (regresión) y monitoreo de **tracking error**.
+- Plan **por capas**: fijar hoy forwards por $Q_1$ (6m) y $Q_2$ (12m).
+- Incertidumbre en $Q_2$: cubrir con $h^\* < 1$ (regresión) y monitoreo de **tracking error**.
 
 --
 
 <!-- .slide: data-background-color="transparent" -->
 ## 6.4.8 Resumen operativo — Checklist de implementación
-- Medir TX/TRAD/ECO y cuantificar \(\beta\) cuando aplique.
-- Calibrar \(F_{0,T}\), puntos forward y plan de **roll**.
-- Seleccionar instrumento (forward/futuro/NDF/CCS) y dimensionar con \(h^\*\) si procede.
+- Medir TX/TRAD/ECO y cuantificar $\beta$ cuando aplique.
+- Calibrar $F_{0,T}$, puntos forward y plan de **roll**.
+- Seleccionar instrumento (forward/futuro/NDF/CCS) y dimensionar con $h^\*$ si procede.
 - Simular P&L neto; establecer límites con **VaR/ES** y pruebas de efectividad.
 
 ---
