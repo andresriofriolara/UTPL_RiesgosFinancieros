@@ -269,6 +269,9 @@ Riesgo Mercado (Cont.)
   F_{0,0.5} = x_0 e^{(r_d - r_f)0.5}, \quad
   F_{0,1}   = x_0 e^{(r_d - r_f)1}.
   $$
+
+--
+
 - Plan **por capas**: fijar hoy forwards por $Q_1$ (6m) y $Q_2$ (12m).
 - Incertidumbre en $Q_2$: cubrir con $h^\* < 1$ (regresión) y monitoreo de **tracking error**.
 
