@@ -287,3 +287,146 @@ Riesgo Mercado (Cont.)
 ---
 
 ## Dudas y Preguntas
+
+---
+
+## Solutions
+
+--
+
+### 6.3.5 Cross-hedging con proxy (COP/USD $\to$ BRL/USD)
+
+**Objetivo.** Cubrir $S_t=\Delta\!\ln(\mathrm{COP}/\mathrm{USD})$ con proxy $H_t=\Delta\!\ln(\mathrm{BRL}/\mathrm{USD})$.
+
+**Ratio óptimo (mínima varianza).**
+$$
+h^\*=\beta=\frac{\operatorname{Cov}(\Delta S,\Delta H)}{\operatorname{Var}(\Delta H)},
+\qquad
+\rho=\frac{\operatorname{Cov}(\Delta S,\Delta H)}{\sigma_S\,\sigma_H}.
+$$
+
+--
+
+**Supuestos (ilustrativos, consistentes).** Frecuencia semanal, 3 años:
+- $\sigma_S=2.00\%=0.02$, $\ \sigma_H=1.80\%=0.018$, $\ \rho=0.90$.
+- Varianzas: $\operatorname{Var}(\Delta S)=0.0004$, $\ \operatorname{Var}(\Delta H)=0.000324$.
+- Covarianza:
+$$
+\operatorname{Cov}(\Delta S,\Delta H)=\rho\,\sigma_S\,\sigma_H
+=0.90\times 0.02\times 0.018=0.000324.
+$$
+
+--
+
+**Resultado.**
+$$
+\beta=\frac{0.000324}{0.000324}=\mathbf{1.00},\qquad
+\frac{\operatorname{Var}_\text{hedged}}{\operatorname{Var}(\Delta S)}=1-\rho^2=1-0.81=\mathbf{0.19}.
+$$
+> Cubre ≈ **81%** de la varianza de la exposición.
+
+--
+
+**Tamaño del hedge (nocional).** Exposición $E=\$10{,}000{,}000$ (USD):
+$$
+N_{\text{proxy}} \approx \beta \times E = 1.00 \times 10{,}000{,}000
+= \mathbf{USD\ 10{,}000{,}000}.
+$$
+
+**Signo/dirección.** Exportador **largo USD** (beneficia si sube COP/USD). Con $\rho>0$ y $\beta>0$, para reducir varianza toma **corto BRL/USD** por $N_{\text{proxy}}$.
+
+--
+
+**Riesgo residual (tracking error).**
+$$
+\sigma_{\text{res}}=\sigma_S\sqrt{1-\rho^2}=0.02\sqrt{0.19}\approx \mathbf{0.00872}\ \ (0.872\% \text{ semanal}).
+$$
+
+--
+
+### 6.4.7 Caso integrado — Exportador con cobros a 6m y 12m
+
+**Datos.** Spot hoy $x_0=1.1000$ (dom/FX), tasas cont. $r_d=3\%$, $r_f=1\%$.  
+Cobros: $Q_1=2{,}000{,}000$ a $T_1=0.5$; $Q_2=3{,}000{,}000$ a $T_2=1$.  
+Para $Q_2$ hay incertidumbre de monto $\Rightarrow$ se usa $h^\*<1$.
+
+--
+
+**CIP (composición continua).**
+$$
+F_{0,T}=x_0\,e^{(r_d-r_f)T}.
+$$
+
+--
+
+**Forwards teóricos.**
+$$
+F_{0,0.5}=1.1000\,e^{(0.03-0.01)\cdot 0.5}=1.1000\,e^{0.01}\approx \mathbf{1.1111}
+\quad(\text{+}111\ \text{pips}),
+$$
+$$
+F_{0,1}=1.1000\,e^{(0.03-0.01)\cdot 1}=1.1000\,e^{0.02}\approx \mathbf{1.1221}
+\quad(\text{+}221\ \text{pips}).
+$$
+
+--
+
+**Estrategia (capas + cobertura parcial).**
+- 6m: cubrir **100%** de $Q_1$ a $F_{0,0.5}$.
+- 12m: por incertidumbre, cubrir $h^\*=0.80$ de $Q_2$ y dejar 20% abierto:
+$$
+Q_{2,\text{cub}}=0.80\times 3{,}000{,}000=\mathbf{2{,}400{,}000},\qquad
+Q_{2,\text{abierto}}=\mathbf{600{,}000}.
+$$
+
+--
+
+**P\&L relativo a $x_0$ (forward plain vanilla / NDF).**
+$$
+\text{P\&L}_\text{fwd}=Q\,(F_{0,T}-x_0)\quad \text{(independiente de }x_T\text{)}.
+$$
+
+--
+
+**Monto bloqueado hoy.**
+$$
+\text{P\&L}_{6m}=2{,}000{,}000\,(1.1111-1.1000)=\mathbf{22{,}222},
+$$
+$$
+\text{P\&L}_{12m,\text{cub}}=2{,}400{,}000\,(1.1221-1.1000)=\mathbf{52{,}999},
+$$
+$$
+\text{P\&L}_{\text{bloqueado}}=\mathbf{22{,}222+52{,}999=75{,}221}.
+$$
+
+--
+
+**Tramo abierto (20% de $Q_2$).**
+$$
+\text{P\&L}_{12m,\text{abierto}}=600{,}000\,(x_1-x_0).
+$$
+
+--
+
+**Escenario A (apreciación doméstica).** $x_{0.5}=1.09$, $x_1=1.09$.
+- Unhedged: $2{,}000{,}000(-0.01)+3{,}000{,}000(-0.01)=\mathbf{-50{,}000}$.
+- Hedged: $75{,}221+600{,}000(-0.01)=\mathbf{69{,}221}$.
+
+--
+
+**Escenario B (depreciación doméstica).** $x_{0.5}=1.15$, $x_1=1.20$.
+- Unhedged: $2{,}000{,}000(0.05)+3{,}000{,}000(0.10)=\mathbf{+400{,}000}$.
+- Hedged: $75{,}221+600{,}000(0.10)=\mathbf{135{,}221}$.
+
+> El hedge **suaviza** resultados: limita pérdidas severas y recorta ganancias extremas. El núcleo del resultado cubierto es el P\&L **bloqueado** por CIP; el tramo abierto mantiene algo de direccionalidad.
+
+--
+
+**Riesgo residual (tramo abierto).** Si $\sigma_{x_1}=0.05$:
+$$
+\sigma\!\left[\text{P\&L}_{12m,\text{abierto}}\right]
+=Q_{2,\text{abierto}}\ \sigma_{x_1}
+=600{,}000\times 0.05
+=\mathbf{30{,}000}.
+$$
+Esto permite construir $VaR/ES$ del remanente si se requiere.
