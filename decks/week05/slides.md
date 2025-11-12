@@ -311,3 +311,171 @@ Riesgo Mercado
 ---
 
 ## Dudas y Preguntas
+
+---
+
+## Solutions
+
+--
+
+## Ejemplo I — Bono: $P$, $D_M$, $D_{\text{mod}}$, PVBP/DV01, convexidad y $\Delta P/P$
+
+**Datos.** Bono a 5 años, cupón anual $6\%$, rendimiento $y=5\%$, nominal $100$.
+
+**Flujos.** Para $t=1,\dots,5$: $CF_t=6$ y $CF_5=106$.
+
+--
+
+**Precio $P$.**
+$$
+P=\sum_{t=1}^{5}\frac{CF_t}{(1+y)^t}
+=\frac{6}{1.05}+\frac{6}{1.05^2}+\frac{6}{1.05^3}+\frac{6}{1.05^4}+\frac{106}{1.05^5}
+\approx \mathbf{104.3294767}.
+$$
+
+--
+
+**Duración de Macaulay $D_M$.** Sea $\text{PV}_t=\dfrac{CF_t}{(1+y)^t}$:
+$$
+D_M=\frac{\sum_{t=1}^{5} t\cdot \text{PV}_t}{P}
+\quad\Rightarrow\quad
+\sum t\cdot \text{PV}_t \approx 467.0585,\; P\approx 104.3295
+\;\Longrightarrow\;
+D_M\approx \mathbf{4.4777512}\ \text{años}.
+$$
+
+--
+
+**Duración modificada $D_{\text{mod}}$.** (composición anual)
+$$
+D_{\text{mod}}=\frac{D_M}{1+y}
+=\frac{4.4777512}{1.05}
+\approx \mathbf{4.2645250}.
+$$
+
+--
+
+**PVBP / DV01.**
+$$
+\text{PVBP} \approx D_{\text{mod}}\times P \times 0.0001
+=4.2645250\times 104.3294767\times 10^{-4}
+\approx \mathbf{0.0444916}.
+$$
+> Interpretación: por **+1 pb** en $y$, el precio cae ≈ **0.04449** por cada 100 de nominal (DV01 = PVBP en dinero).
+
+--
+
+**Convexidad $C$.**
+$$
+C=\frac{1}{P}\sum_{t=1}^{5} t(t+1)\frac{CF_t}{(1+y)^{t+2}}
+\;\approx\; \mathbf{23.4440906}.
+$$
+
+--
+
+**Choque $\Delta y=+0.005$ (50 pb).**
+
+- Aproximación de 1er orden (duración):
+$$
+\frac{\Delta P}{P}\approx -D_{\text{mod}}\Delta y
+= -4.2645250\times 0.005
+= \mathbf{-2.1322625\%}.
+$$
+
+--
+
+- Con convexidad (2º orden):
+$$
+\frac{\Delta P}{P}\approx -D_{\text{mod}}\Delta y+\tfrac{1}{2}C(\Delta y)^2
+= -0.0213226+\tfrac{1}{2}\cdot 23.4440906\cdot 0.005^2
+\approx \mathbf{-2.1029574\%}.
+$$
+
+--
+
+- Exacto (reprecio a $y'=5.5\%$):
+$$
+P'=\sum_{t=1}^{5}\frac{CF_t}{1.055^t}\approx 102.1351422,
+\qquad
+\frac{\Delta P}{P}=\frac{P'-P}{P}\approx \mathbf{-2.1032737\%}.
+$$
+
+> La corrección de 2º orden prácticamente da el cambio exacto; la lineal se pasa ~3 pb de precio.
+
+--
+
+## Ejemplo II — Cobertura con futuros: número de contratos $N$
+
+**Datos.** $\text{DV01}_{\text{posición}}=85{,}000$ (dinero), $\text{DV01}_{\text{futuro}}=65$ por contrato, $\rho=0.95$.
+
+**Dimensionamiento base.**
+$$
+N_0=\frac{\text{DV01}_{\text{posición}}}{\text{DV01}_{\text{futuro}}}
+=\frac{85\,000}{65}
+= \mathbf{1307.6923}.
+$$
+
+--
+
+**Ajuste por correlación (mínima varianza).**
+$$
+N \approx N_0\times \rho
+=1307.6923\times 0.95
+\approx \mathbf{1242.3077}.
+$$
+
+--
+
+**Dirección y redondeo.** Si la **posición** tiene DV01 $>0$ (pierde cuando sube $y$), el hedge debe aportar DV01 $<0$:
+- Con **futuros de bonos**, un **corto** aporta DV01 $<0$.
+- **Operativo:** **vender (corto) $N=1242$** contratos (redondeo a entero).
+
+--
+
+**Resíduo por redondeo.**
+$$
+85\,000 - 1242\times 65 = \mathbf{4\,270}\ \text{(dinero)}.
+$$
+
+--
+
+**Reducción teórica de varianza.**
+$$
+\text{Var}_{\text{hedged}}=\text{Var}(\Delta P)\,(1-\rho^2)
+\;\Rightarrow\;
+1-\rho^2=1-0.9025=\mathbf{9.75\%}.
+$$
+> Cubres ≈ **90.25%** de la varianza (quedando 9.75% residual).
+
+--
+
+## Ejemplo III — Duration targeting con swap: nocional $N$ y verificación
+
+**Datos.** $D_c=4.8$ años, $V_c=\$50{,}000{,}000$, objetivo $D^\*=4.0$ años, $D_s\approx 7.5$ en magnitud.
+
+> Hecho clave: **Pagar fijo** reduce duración (contribución negativa); **Recibir fijo** la aumenta.
+
+--
+
+**Nocional teórico.**
+$$
+N \approx \frac{(D^\*-D_c)\,V_c}{D_s}
+= \frac{(4.0-4.8)\times 50\,000\,000}{7.5}
+\approx \mathbf{-5\,333\,333}.
+$$
+
+- El **signo negativo** (tomando $D_s>0$ por convención del “recibir fijo”) indica que debemos **pagar fijo** con nocional $\$5.33$ MM (lo que aporta $-D_s$).
+
+--
+
+**Verificación ex–post de la duración objetivo.** Si el swap como **pagador fijo** aporta $D_{\text{swap}}=-7.5$:
+$$
+D_{\text{nueva}}
+=\frac{D_c V_c + D_{\text{swap}}\cdot N}{V_c}
+=\frac{4.8\cdot 50\,000\,000 + (-7.5)\cdot 5\,333\,333}{50\,000\,000}
+=\mathbf{4.0}\ \text{años}.
+$$
+
+--
+
+> Recomendado: comprobar también DV01 post–swap y, si procede, la **distribución por tramos (KRD)** para choques no paralelos.
