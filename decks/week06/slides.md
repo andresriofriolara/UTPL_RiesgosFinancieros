@@ -430,3 +430,341 @@ $$
 =\mathbf{30{,}000}.
 $$
 Esto permite construir $VaR/ES$ del remanente si se requiere.
+
+---
+
+# Ejercicio de Divisas
+
+--
+
+## Mapa de mercado – precios y variaciones
+
+<section data-background-color="transparent">
+  <img src="images/image1.png" alt="image1" class="r-stretch" />
+</section>
+
+--
+
+## Correlaciones entre divisas
+
+<section data-background-color="transparent">
+  <img src="images/image2.png" alt="image2" class="r-stretch" />
+</section>
+
+--
+
+## Proyecciones y forwards implícitos
+
+<section data-background-color="transparent">
+  <img src="images/image3.png" alt="image3" class="r-stretch" />
+</section>
+
+--
+
+## Enunciado para los estudiantes
+
+**Contexto**
+
+Una empresa mexicana exportadora de autopartes factura en dólares estadounidenses (USD) pero reporta sus estados financieros en pesos mexicanos (MXN). Para los próximos 6–9 meses espera cobrar **USD 10 millones**.
+
+La empresa está **larga USD / corta MXN** (si el peso se aprecia, el tipo de cambio USD/MXN baja y la empresa recibe menos MXN por sus USD).
+
+--
+
+El mercado tiene derivados líquidos sobre **USDBRL** (dólar vs real brasileño), pero la liquidez en derivados de **USDMXN** es limitada, por lo que se evalúa una **cobertura cruzada (cross-hedging)**.
+
+A partir de información de mercado se observa:
+
+--
+
+## Datos del ejercicio
+
+### 1. Resumen de mercado (spot y variación semanal)
+
+| Par        | Spot actual | Variación semanal aproximada |
+|------------|------------:|-----------------------------:|
+| **USDMXN** | 18.3027     | -1.50%                       |
+| **USDBRL** | 5.2932      | -1.08%                       |
+
+> Para efectos de este ejercicio, suponga que la columna **Weekly** de la tabla es una buena aproximación de la **volatilidad semanal ($\sigma$)** de los retornos $\Delta \ln(\text{tipo de cambio})$. Use el valor absoluto de estos porcentajes.
+
+--
+
+## Datos del ejercicio
+
+### 2. Correlaciones entre retornos semanales
+
+Un gestor de riesgos ha estimado la matriz de correlaciones entre los retornos semanales de los tipos de cambio frente al USD. Un extracto relevante es:
+
+- $\rho(\Delta\text{USDMXN},\ \Delta\text{USDBRL}) = 0.87$.
+
+--
+
+## Datos del ejercicio
+
+### 3. Proyecciones de tipo de cambio (consenso de analistas)
+
+Del cuadro de proyecciones se obtienen los siguientes valores para el cierre de **Q2 2026**:
+
+| Par        | Spot actual | Proyección Q2 2026 |
+|------------|------------:|-------------------:|
+| **USDMXN** | 18.3027     | 17.9999            |
+| **USDBRL** | 5.2932      | 5.16055            |
+
+--
+
+## Requerimientos
+
+1. **Volatilidades semanales y anualizadas**
+
+   a) Interprete las variaciones semanales como volatilidades:
+   $$
+   \sigma_{\text{MXN, week}} = 1.50\%, \qquad
+   \sigma_{\text{BRL, week}} = 1.08\%.
+   $$
+
+   b) Calcule las **volatilidades anualizadas** de USDMXN y USDBRL, usando 52 semanas por año:
+   $$
+   \sigma_\text{annual} = \sigma_\text{week} \sqrt{52}.
+   $$
+
+--
+
+## Requerimientos
+
+2. **Cálculo del beta de cobertura óptima (mínima varianza)**
+
+   Usando la correlación dada, calcule el **ratio de cobertura óptimo** $h^\*$ para cubrir movimientos de USDMXN usando USDBRL:
+
+   $$
+   h^\* = \beta
+        = \rho\,\frac{\sigma_{\text{MXN}}}{\sigma_{\text{BRL}}}.
+   $$
+
+--
+
+   a) Calcule $h^\*$.  
+   b) Interprete el resultado: ¿es mayor o menor que 1? ¿Qué implica eso sobre el tamaño del hedge en BRL respecto a la exposición en MXN?
+
+--
+
+## Requerimientos
+
+3. **Dimensionamiento del nocional de cobertura**
+
+   Suponga que la empresa tiene una exposición de **USD 10 millones** ligada a USDMXN.
+
+   a) Calcule el **nocional óptimo** de cobertura en USDBRL (en USD):
+
+   $$
+   N_\text{BRL} = h^\* \times \text{USD }10{,}000{,}000.
+   $$
+
+--
+
+
+   b) Desde el punto de vista de la empresa (larga USD frente a MXN), ¿la posición en USDBRL debe ser **corta** o **larga**? Explique en una frase usando la lógica de las slides (exportador largo USD).
+
+--
+
+## Requerimientos
+
+4. **Reducción de riesgo (tracking error)**
+
+   La desviación estándar semanal del P\&L (en MXN) de la exposición no cubierta es aproximadamente:
+
+   $$
+   \sigma_{\text{P\&L, unhedged}} = E \times \sigma_{\text{MXN, week}},
+   $$
+   donde $E = \text{USD }10{,}000{,}000$.
+
+--
+
+   Para un hedge con ratio óptimo, la varianza residual es:
+
+   $$
+   \operatorname{Var}_{\text{hedged}}
+     = \operatorname{Var}(\Delta S)\,(1-\rho^2).
+   $$
+
+--
+
+   a) Calcule la **desviación estándar semanal** del P\&L sin cobertura.  
+   b) Calcule la desviación estándar semanal del P\&L **cubierto** usando:
+   $$
+   \sigma_{\text{P\&L, hedged}} = E\,\sigma_{\text{MXN, week}} \sqrt{1-\rho^2}.
+   $$
+   c) Anualice ambas desviaciones estándar (sin y con hedge).  
+   d) ¿Qué porcentaje de la varianza del riesgo cambiario se logra reducir al usar el proxy BRL? Relacione su respuesta con el $\rho^2$ de la correlación.
+
+--
+
+## Requerimientos
+
+5. **Escenario de proyección y efecto de la cobertura**
+
+   Utilice las proyecciones de Q2 2026:
+
+   $$
+   S_0 = 18.3027,\quad S_{Q2} = 17.9999
+   $$
+   $$
+   H_0 = 5.2932,\quad H_{Q2} = 5.16055.
+   $$
+
+--
+
+   a) Calcule los **retornos esperados** (en términos de tipo de cambio) desde hoy hasta Q2 2026:
+
+   $$
+   r_S = \frac{S_{Q2}}{S_0} - 1, \qquad
+   r_H = \frac{H_{Q2}}{H_0} - 1.
+   $$
+
+   b) Suponga que la empresa **no se cubre**. Calcule el cambio esperado en el valor de la cuenta por cobrar (USD 10M) medido en “unidades de retorno” $r_S$.
+
+--
+
+## Requerimientos
+
+
+   c) Suponga ahora que la empresa aplica el hedge óptimo con ratio $h^\*$ calculado en (2) y toma una posición de tamaño $N_\text{BRL}$ en USDBRL. Calcule el **retorno combinado**:
+
+   $$
+   r_{\text{hedged}} = r_S - h^\*\,r_H.
+   $$
+
+--
+
+   d) Compare el resultado esperado sin cobertura y con cobertura:
+   - ¿Cuál es el signo del retorno esperado de la posición cubierta?  
+   - ¿Qué nos dice eso sobre la interacción entre el hedge (BRL) y la expectativa de mercado?
+
+--
+
+## Guía de solución
+
+*(Números aproximados, redondeados.)*
+
+1. **Volatilidades**
+
+   - $\sigma_{\text{MXN, week}} = 1.50\% = 0.015$  
+   - $\sigma_{\text{BRL, week}} = 1.08\% \approx 0.0108$
+
+--
+
+   Anualizadas:
+
+   - $\sigma_{\text{MXN, ann}} = 0.015\sqrt{52} \approx 10.8\%$  
+   - $\sigma_{\text{BRL, ann}} = 0.0108\sqrt{52} \approx 7.8\%$
+
+---
+
+2. **Beta de cobertura**
+
+   $$
+   h^\* = 0.87 \times \frac{0.015}{0.0108}
+        \approx 0.87 \times 1.3889
+        \approx \mathbf{1.21}.
+   $$
+
+   > Beta > 1 ⇒ el nocional de hedge en BRL debe ser algo mayor que la exposición en MXN (en términos de USD).
+
+--
+
+3. **Nocional**
+
+   $$
+   N_\text{BRL} = 1.21 \times 10{,}000{,}000 \approx \mathbf{USD\ 12.1\text{ millones}}.
+   $$
+
+   Como la empresa está **larga USD vs MXN**, para reducir riesgo debe tomar una posición **corta en USDBRL** (beneficia si USD cae frente a BRL).
+
+--
+
+4. **Riesgo (σ del P\&L)**
+
+   - Sin cobertura (semanal):
+
+     $$
+     \sigma_{\text{P\&L, unhedged}} = 10{,}000{,}000 \times 0.015
+     = \mathbf{USD\ 150{,}000\ (\approx\ semanal)}.
+     $$
+
+--
+
+   - Varianza residual:
+
+     $$
+     \operatorname{Var}_{\text{hedged}} = 0.015^2 (1 - 0.87^2)
+                                       \approx 2.25\times10^{-4} \times 0.2431
+                                       \approx 5.47\times10^{-5}.
+     $$
+     $$
+     \sigma_{\text{MXN, hedged, week}} \approx \sqrt{5.47\times10^{-5}} \approx 0.00740\ (0.74\%).
+     $$
+
+--
+
+     Entonces:
+
+     $$
+     \sigma_{\text{P\&L, hedged}} = 10{,}000{,}000 \times 0.00740
+     \approx \mathbf{USD\ 74{,}000\ (\approx\ semanal)}.
+     $$
+
+--
+
+   - Anualizando:
+     - Sin hedge: $1.08\ \text{M USD}$ aprox.  
+     - Con hedge: $0.53\ \text{M USD}$ aprox.
+
+--
+
+   - Reducción de varianza:
+
+     $$
+     \frac{\operatorname{Var}_\text{hedged}}{\operatorname{Var}_\text{unhedged}}
+       = 1 - \rho^2
+       = 1 - 0.87^2 \approx 0.24.
+     $$
+
+     ⇒ se elimina ≈ **76%** de la varianza (coincide con la intuición de $1-\rho^2$).
+
+--
+
+5. **Escenario de proyección**
+
+   Retornos esperados:
+
+   $$
+   r_S = \frac{17.9999}{18.3027} - 1 \approx -1.65\%,
+   \quad
+   r_H = \frac{5.16055}{5.2932} - 1 \approx -2.51\%.
+   $$
+
+--
+
+   - Sin hedge (en “unidades de retorno” sobre la exposición):
+
+     $$
+     \Delta_\text{unhedged} = r_S \times 10{,}000{,}000 \approx -165{,}000.
+     $$
+
+--
+
+   - Con hedge:
+
+     $$
+     r_{\text{hedged}} = r_S - h^\* r_H
+     \approx -0.0165 - 1.21(-0.0251)
+     \approx +0.0137\ (1.37\%).
+     $$
+     $$
+     \Delta_\text{hedged} \approx 0.0137 \times 10{,}000{,}000
+     \approx +137{,}000.
+     $$
+
+--
+
+   > Con estas proyecciones, el hedge no solo reduce riesgo sino que, dado que se espera que el USD caiga aún más frente al BRL que frente al MXN, la posición corta en USDBRL genera una ganancia esperada que más que compensa la apreciación del MXN.
