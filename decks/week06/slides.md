@@ -694,12 +694,12 @@ $$
    - Varianza residual:
 
 $$
-     \operatorname{Var}_{\text{hedged}} = 0.015^2 (1 - 0.87^2)
-                                       \approx 2.25\times10^{-4} \times 0.2431
-                                       \approx 5.47\times10^{-5}.
+  \operatorname{Var}_{\text{hedged}} = 0.015^2 (1 - 0.87^2)
+    \approx 2.25\times10^{-4} \times 0.2431
+    \approx 5.47\times10^{-5}.
 $$
 $$
-     \sigma_{\text{MXN, hedged, week}} \approx \sqrt{5.47\times10^{-5}} \approx 0.00740\ (0.74\%).
+  \sigma_{\text{MXN, hedged, week}} \approx \sqrt{5.47\times10^{-5}} \approx 0.00740\ (0.74\%).
 $$
 
 --
