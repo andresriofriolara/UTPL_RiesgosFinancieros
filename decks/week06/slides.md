@@ -459,9 +459,7 @@ Esto permite construir $VaR/ES$ del remanente si se requiere.
   <img src="images/image3.png" alt="image3" class="r-stretch" />
 </section>
 
---
-
-## Enunciado para los estudiantes
+---
 
 **Contexto**
 
@@ -582,18 +580,18 @@ Del cuadro de proyecciones se obtienen los siguientes valores para el cierre de 
 
    Para un hedge con ratio óptimo, la varianza residual es:
 
-   $$
+$$
    \operatorname{Var}_{\text{hedged}}
      = \operatorname{Var}(\Delta S)\,(1-\rho^2).
-   $$
+$$
 
 --
 
    a) Calcule la **desviación estándar semanal** del P\&L sin cobertura.  
    b) Calcule la desviación estándar semanal del P\&L **cubierto** usando:
-   $$
+$$
    \sigma_{\text{P\&L, hedged}} = E\,\sigma_{\text{MXN, week}} \sqrt{1-\rho^2}.
-   $$
+$$
    c) Anualice ambas desviaciones estándar (sin y con hedge).  
    d) ¿Qué porcentaje de la varianza del riesgo cambiario se logra reducir al usar el proxy BRL? Relacione su respuesta con el $\rho^2$ de la correlación.
 
@@ -616,10 +614,10 @@ Del cuadro de proyecciones se obtienen los siguientes valores para el cierre de 
 
    a) Calcule los **retornos esperados** (en términos de tipo de cambio) desde hoy hasta Q2 2026:
 
-   $$
+$$
    r_S = \frac{S_{Q2}}{S_0} - 1, \qquad
    r_H = \frac{H_{Q2}}{H_0} - 1.
-   $$
+$$
 
    b) Suponga que la empresa **no se cubre**. Calcule el cambio esperado en el valor de la cuenta por cobrar (USD 10M) medido en “unidades de retorno” $r_S$.
 
@@ -630,9 +628,9 @@ Del cuadro de proyecciones se obtienen los siguientes valores para el cierre de 
 
    c) Suponga ahora que la empresa aplica el hedge óptimo con ratio $h^\*$ calculado en (2) y toma una posición de tamaño $N_\text{BRL}$ en USDBRL. Calcule el **retorno combinado**:
 
-   $$
+$$
    r_{\text{hedged}} = r_S - h^\*\,r_H.
-   $$
+$$
 
 --
 
@@ -686,32 +684,32 @@ Del cuadro de proyecciones se obtienen los siguientes valores para el cierre de 
 
    - Sin cobertura (semanal):
 
-     $$
+$$
      \sigma_{\text{P\&L, unhedged}} = 10{,}000{,}000 \times 0.015
      = \mathbf{USD\ 150{,}000\ (\approx\ semanal)}.
-     $$
+$$
 
 --
 
    - Varianza residual:
 
-     $$
+$$
      \operatorname{Var}_{\text{hedged}} = 0.015^2 (1 - 0.87^2)
                                        \approx 2.25\times10^{-4} \times 0.2431
                                        \approx 5.47\times10^{-5}.
-     $$
-     $$
+$$
+$$
      \sigma_{\text{MXN, hedged, week}} \approx \sqrt{5.47\times10^{-5}} \approx 0.00740\ (0.74\%).
-     $$
+$$
 
 --
 
      Entonces:
 
-     $$
+$$
      \sigma_{\text{P\&L, hedged}} = 10{,}000{,}000 \times 0.00740
      \approx \mathbf{USD\ 74{,}000\ (\approx\ semanal)}.
-     $$
+$$
 
 --
 
@@ -723,11 +721,11 @@ Del cuadro de proyecciones se obtienen los siguientes valores para el cierre de 
 
    - Reducción de varianza:
 
-     $$
+$$
      \frac{\operatorname{Var}_\text{hedged}}{\operatorname{Var}_\text{unhedged}}
        = 1 - \rho^2
        = 1 - 0.87^2 \approx 0.24.
-     $$
+$$
 
      ⇒ se elimina ≈ **76%** de la varianza (coincide con la intuición de $1-\rho^2$).
 
@@ -747,23 +745,23 @@ Del cuadro de proyecciones se obtienen los siguientes valores para el cierre de 
 
    - Sin hedge (en “unidades de retorno” sobre la exposición):
 
-     $$
+$$
      \Delta_\text{unhedged} = r_S \times 10{,}000{,}000 \approx -165{,}000.
-     $$
+$$
 
 --
 
    - Con hedge:
 
-     $$
+$$
      r_{\text{hedged}} = r_S - h^\* r_H
      \approx -0.0165 - 1.21(-0.0251)
      \approx +0.0137\ (1.37\%).
-     $$
-     $$
+$$
+$$
      \Delta_\text{hedged} \approx 0.0137 \times 10{,}000{,}000
      \approx +137{,}000.
-     $$
+$$
 
 --
 
