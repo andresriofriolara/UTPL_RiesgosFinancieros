@@ -405,20 +405,6 @@ $$
 
 --
 
-**P\&L relativo a $x_0$ (forward plain vanilla / NDF).**
-
---
-
-$\text{P\&L}_\text{fwd} = Q(F_{0,T} - x_0 )$
-
---
-
-$$
-\text{(independiente de }x_T\text{)}.
-$$
-
---
-
 **Monto bloqueado hoy.**
 
 $$
