@@ -407,7 +407,7 @@ $$
 **P\&L relativo a $x_0$ (forward plain vanilla / NDF).**
 
 $$
-\text{P\&L}_\text{fwd}=Q\,(F_{0,T}-x_0)\quad \text{(independiente de }x_T\text{)}.
+   \text{P\&L}_\text{fwd}=Q\,(F_{0,T}-x_0)\quad \text{(independiente de }x_T\text{)}.
 $$
 
 --
@@ -456,8 +456,14 @@ $$
 
 $$
    \sigma\!\left[\text{P\&L}_{12m,\text{abierto}}\right]
+$$
+$$
    =Q_{2,\text{abierto}}\ \sigma_{x_1}
+$$
+$$
    =600{,}000\times 0.05
+$$
+$$
    =\mathbf{30{,}000}.
 $$
 
@@ -733,6 +739,8 @@ $$
 $$
   \operatorname{Var}_{\text{hedged}} = 0.015^2 (1 - 0.87^2)
     \approx 2.25\times10^{-4} \times 0.2431
+$$
+$$
     \approx 5.47\times10^{-5}.
 $$
 
