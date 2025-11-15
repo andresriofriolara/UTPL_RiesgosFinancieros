@@ -300,8 +300,9 @@ Riesgo Mercado (Cont.)
 
 **Ratio óptimo (mínima varianza).**
 $$
-h^\*=\beta=\frac{\operatorname{Cov}(\Delta S,\Delta H)}{\operatorname{Var}(\Delta H)},
-\qquad
+h^\*=\beta=\frac{\operatorname{Cov}(\Delta S,\Delta H)}{\operatorname{Var}(\Delta H)}
+$$
+$$
 \rho=\frac{\operatorname{Cov}(\Delta S,\Delta H)}{\sigma_S\,\sigma_H}.
 $$
 
@@ -406,6 +407,8 @@ $$
 
 **P\&L relativo a $x_0$ (forward plain vanilla / NDF).**
 
+--
+
 $$
    \text{P\&L}_\text{fwd}=Q\,(F_{0,T}-x_0)\quad \text{(independiente de }x_T\text{)}.
 $$
@@ -457,12 +460,21 @@ $$
 $$
    \sigma\!\left[\text{P\&L}_{12m,\text{abierto}}\right]
 $$
+
+--
+
 $$
    =Q_{2,\text{abierto}}\ \sigma_{x_1}
 $$
+
+--
+
 $$
    =600{,}000\times 0.05
 $$
+
+--
+
 $$
    =\mathbf{30{,}000}.
 $$
