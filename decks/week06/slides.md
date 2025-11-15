@@ -410,7 +410,10 @@ $$
 --
 
 $$
-   \text{P\&L}_\text{fwd}=Q\,(F_{0,T}-x_0) \text{(independiente de }x_T\text{)}.
+   \text{P\&L}_\text{fwd}=Q\,(F_{0,T}-x_0) 
+$$
+$$
+   \text{(independiente de }x_T\text{)}.
 $$
 
 --
