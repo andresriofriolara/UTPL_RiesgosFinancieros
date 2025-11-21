@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>UTPL • Ingeniería Financiera y Administración de Riesgos Financieros — Semana 07</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Reveal core + stock theme from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/white.css" id="theme">
+
+  <!-- Code highlight theme -->
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css">
+
+  <!-- Your shared theme (local, relative to week01/) -->
+  <link rel="stylesheet" href="../../shared/css/utpl-theme.css">
+
+  <style>
+    section img { max-width: 100%; height: auto; }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <!-- Markdown-powered deck -->
+      <section
+        data-markdown="slides.md"
+        data-separator="^---$"
+        data-separator-vertical="^--$"
+        data-separator-notes="^Note:"
+        data-charset="utf-8">
+      </section>
+    </div>
+  </div>
+
+  <!-- Reveal core + plugins from CDN -->
+  <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+  <script src="https://unpkg.com/reveal.js/plugin/markdown/markdown.js"></script>
+  <script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
+  <script src="https://unpkg.com/reveal.js/plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js/plugin/math/math.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/white.css" id="theme">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css">
+  <link rel="stylesheet" href="../../shared/css/utpl-theme.css">
+
+
+  <script>
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      controlsTutorial: true,
+      controlsLayout: 'edges',
+      progress: true,
+      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.MathJax3 ],
+      math: {
+        mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$','$$'], ['\\[','\\]']]
+        }
+      }
+    });
+  </script>
+
+  <!-- Clock (top-left; toggle with "C") -->
+  <script src="../../shared/js/clock.js"></script>
+</body>
+</html>
+
+
+<script>
+(function () {
+
+  function initRandomWheel() {
+    const root = document.getElementById('random-wheel-slide');
+    if (!root) return;
+
+    const wheel         = root.querySelector('.wheel');
+    const spinBtn       = root.querySelector('.spin-btn');
+    const resultEl      = root.querySelector('.wheel-result');
+    const remainingList = root.querySelector('.remaining-list');
+    const usedList      = root.querySelector('.used-list');
+
+    if (!wheel || !spinBtn) return;
+
+    // ====== EDIT LABELS HERE ======
+    const labels = [
+      'Grupo 1',
+      'Grupo 2',
+      'Grupo 3',
+      'Grupo 4',
+      'Grupo 5',
+      'Grupo 6',
+      'Grupo 7',
+      'Grupo 8'
+    ];
+    // ===============================
+
+    const n = labels.length;
+    const segmentAngle = 360 / n;
+
+    let availableIndices = labels.map((_, i) => i);
+    const usedIndices = [];
+
+    function buildWheelBackground() {
+      const parts = [];
+      for (let i = 0; i < n; i++) {
+        const start = i * segmentAngle;
+        const end   = (i + 1) * segmentAngle;
+        const hue   = Math.round((360 * i) / n);
+        parts.push(`hsl(${hue}, 70%, 60%) ${start}deg ${end}deg`);
+      }
+      return `conic-gradient(${parts.join(',')})`;
+    }
+
+    // Color segments
+    wheel.style.background = buildWheelBackground();
+
+    // Build lists
+    function renderLists() {
+      remainingList.innerHTML = '';
+      usedList.innerHTML = '';
+
+      availableIndices.forEach(i => {
+        const li = document.createElement('li');
+        li.textContent = labels[i];
+        remainingList.appendChild(li);
+      });
+
+      usedIndices.forEach(i => {
+        const li = document.createElement('li');
+        li.textContent = labels[i];
+        li.classList.add('used');
+        usedList.appendChild(li);
+      });
+    }
+
+    renderLists();
+
+    let currentRotation = 0;
+    let isSpinning = false;
+
+    spinBtn.addEventListener('click', () => {
+      if (isSpinning) return;
+
+      if (availableIndices.length === 0) {
+        resultEl.textContent = 'All segments already used.';
+        spinBtn.disabled = true;
+        return;
+      }
+
+      isSpinning = true;
+      resultEl.textContent = '';
+
+      // Sample one remaining index (no replacement)
+      const r = Math.floor(Math.random() * availableIndices.length);
+      const chosenIndex = availableIndices[r];
+      availableIndices.splice(r, 1);
+      usedIndices.push(chosenIndex);
+
+      const fullTurns = 3 + Math.floor(Math.random() * 3); // 3–5 full turns
+      const segmentCenter = chosenIndex * segmentAngle + segmentAngle / 2;
+      const targetAngle   = 360 - segmentCenter;
+      const finalRotation = fullTurns * 360 + targetAngle;
+
+      wheel.style.transition = 'transform 4s cubic-bezier(0.25, 0.1, 0.25, 1)';
+      wheel.style.transform  = `rotate(${finalRotation}deg)`;
+
+      const onEnd = () => {
+        wheel.removeEventListener('transitionend', onEnd);
+        currentRotation = finalRotation % 360;
+        wheel.style.transition = 'none';
+        wheel.style.transform  = `rotate(${currentRotation}deg)`;
+
+        renderLists();
+        resultEl.textContent = `Result: ${labels[chosenIndex]}`;
+        isSpinning = false;
+
+        if (availableIndices.length === 0) {
+          spinBtn.disabled = true;
+        }
+      };
+
+      wheel.addEventListener('transitionend', onEnd);
+    });
+  }
+
+  // Make sure Reveal has built the slides first
+  if (window.Reveal && Reveal.on) {
+    Reveal.on('ready', initRandomWheel);
+  } else {
+    // Fallback if Reveal isn't available for some reason
+    document.addEventListener('DOMContentLoaded', initRandomWheel);
+  }
+
+})();
+</script>
