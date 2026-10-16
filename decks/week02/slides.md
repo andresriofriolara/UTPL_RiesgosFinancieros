@@ -1,6 +1,6 @@
 <section class="title-slide">
 Semana 2 | Instrumentos de cobertura de riesgos mediante derivados financieros 
-<div class="subtitle">Ingeniería Financiera y Administración de Riesgos Financieros • <em>Octubre 14, 2025</em></div>
+<div class="subtitle">Ingeniería Financiera y Administración de Riesgos Financieros • <em>Octubre 16, 2026</em></div>
 </section>
 
 ---
