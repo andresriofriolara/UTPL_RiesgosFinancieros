@@ -35,7 +35,7 @@
 
 <section class="title-slide">
 Semana 3 | Riesgo de Crédito
-<div class="subtitle">Ingeniería Financiera y Administración de Riesgos Financieros • <em>Octubre 21, 2025</em></div>
+<div class="subtitle">Ingeniería Financiera y Administración de Riesgos Financieros • <em>Octubre 21, 2026</em></div>
 </section>
 
 ---
