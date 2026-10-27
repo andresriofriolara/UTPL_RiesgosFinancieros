@@ -35,7 +35,7 @@
 
 <section class="title-slide">
 Semana 4 | Riesgo de Interés y de Liquidez
-<div class="subtitle">Ingeniería Financiera y Administración de Riesgos Financieros • <em>Octubre 30, 2025</em></div>
+<div class="subtitle">Ingeniería Financiera y Administración de Riesgos Financieros • <em>Octubre 28, 2026</em></div>
 </section>
 
 ---
