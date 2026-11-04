@@ -1,6 +1,6 @@
 <section class="title-slide">
 Semana 5 | Riesgo de Mercado
-<div class="subtitle">Ingeniería Financiera y Administración de Riesgos Financieros • <em>Noviembre 04, 2025</em></div>
+<div class="subtitle">Ingeniería Financiera y Administración de Riesgos Financieros • <em>Noviembre 04, 2026</em></div>
 </section>
 
 ---
