@@ -1,6 +1,6 @@
 <section class="title-slide">
 Semana 6 | Riesgo de Mercado (Cont.)
-<div class="subtitle">Ingeniería Financiera y Administración de Riesgos Financieros • <em>Noviembre 11, 2025</em></div>
+<div class="subtitle">Ingeniería Financiera y Administración de Riesgos Financieros • <em>Noviembre 11, 2026</em></div>
 </section>
 
 ---
