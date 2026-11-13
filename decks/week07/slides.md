@@ -1,6 +1,6 @@
 <section class="title-slide">
 Semana 7 | Planificación de la estrategia de inversión
-<div class="subtitle">Ingeniería Financiera y Administración de Riesgos Financieros • <em>Noviembre 18, 2025</em></div>
+<div class="subtitle">Ingeniería Financiera y Administración de Riesgos Financieros • <em>Noviembre 18, 2026</em></div>
 </section>
 
 ---
